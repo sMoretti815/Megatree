@@ -40,7 +40,7 @@ def incorporable(G, Trees):
           y_candidates.append(y)     
     
     #per ogni y per cui vale la condizione sopra
-    for y in y_candidates:
+    for y in y_candidates: #oppure G.nodes()?
         #trovo tutti i nodi x con al stessa labele li salvo in una lista di nodi x possibili
         x_candidates = [x for x in G.nodes() if (y!=x and (G.nodes[y]['label']) == (G.nodes[x]['label']))]
         y_successors = list(G.successors(y))
@@ -104,7 +104,8 @@ def shrink(G, nodes_shrinkable):
 
 def weight_edges(G, Trees):
     for G_edge in G.edges():
-         G.edges[G_edge]['weight'] = 0
+         G.edges[G_edge]['weight'] = 0 
+    
     
     for (T, _) in Trees:
         for T_edge in T.edges():
@@ -116,13 +117,14 @@ def weight_edges(G, Trees):
                         if ((node_from, node_to) == T_edge):
                             G.edges[G_edge]['weight'] += 1
     return
+    
 
 T1 = nx.DiGraph()
 T2 = nx.DiGraph()
 T3 = nx.DiGraph()
 G = nx.DiGraph()
-G.add_node("alpha", label="alpha")
-
+G.add_node("alpha", label="z")
+#alpha = list(G.nodes())[0]
 
 T1.add_edges_from([("alpha", "a1"), ("a1","b1"), ("b1", "d1"), ("b1","c1"), ("d1","e1"), ("c1","f1"), ("f1","g1")])
 T2.add_edges_from([("alpha", "a2"),("a2","b2"), ("b2", "d2"), ("b2","c2"), ("d2","f2"), ("c2","e2"), ("a2","g2")])
@@ -137,11 +139,10 @@ Trees = [(T1, "a1"),(T2, "a2"),(T3, "a3")]
 #etichetto i nodi dentro gli alberi
 for (Tree, _) in Trees:
     for node in Tree.nodes():
-        Tree.nodes[node]['mapping'] = [node]
         if node != "alpha":
             Tree.nodes[node]['label'] = re.search(r'(^\S)', node).group(0)
         else:
-            Tree.nodes[node]['label'] = "alpha"
+            Tree.nodes[node]['label'] = "z"
 
 #inserico mano a mano ogni albero nel grafo 
 for (Tree, root) in Trees:
@@ -155,6 +156,8 @@ for (Tree, root) in Trees:
             G.nodes[node]['label'] = re.search(r'(^\S)', node).group(0)
         else:
             G.nodes[node]['label'] = "z"
+        
+        
     
     #fino a che ci sono nodi che possono essere shrinkati o incorporati lo faccio, poi passo ad inserire l'albero successivo
     nodes_shrinkable = shrinkable(G)
@@ -164,7 +167,6 @@ for (Tree, root) in Trees:
             incorporate(G, nodes_incorporable)
         else:
             shrink(G, nodes_shrinkable)
-            
         nodes_shrinkable = shrinkable(G)
         nodes_incorporable = incorporable(G, Trees)
         weight_edges(G, Trees)
@@ -183,6 +185,7 @@ nx.draw(G, pos, with_labels=True, font_weight="bold")
 edge_labels = {(u, v): d["weight"] for u, v, d in G.edges(data=True)}
 nx.draw_networkx_edge_labels(G, pos, edge_labels=edge_labels, font_color="red", font_size=12)
 plt.show() 
+    
             
     #aggiungere pesi
 
