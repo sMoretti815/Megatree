@@ -60,8 +60,9 @@ def incorporable(G, Trees):
     return result
 
 def incorporate(G, nodes):
-    (y, x) = nodes[len(nodes)-1]
-    #(y, x) = max(nodes, key=lambda x: G.nodes[x[0]]['depth'])
+    y = nodes[len(nodes)-1][0]
+    x = nodes[len(nodes)-1][1]
+    (y, x) = max(nodes, key=lambda x: G.nodes[x[0]]['depth'])
     print(nodes)
     print((y, x))
     print("incorporated")
@@ -92,8 +93,9 @@ def shrinkable(G):
     return result
 
 def shrink(G, nodes_shrinkable):
-    (y, x) = nodes_shrinkable[0]
-    #(y, x) = max(nodes_shrinkable, key=lambda x: G.nodes[x[1]]['depth'])
+    y = nodes_shrinkable[0][0]
+    x = nodes_shrinkable[0][1]
+    (y, x) = max(nodes_shrinkable, key=lambda x: G.nodes[x[1]]['depth'])
     print(nodes_shrinkable)
     print("shrinked")
     
@@ -130,8 +132,6 @@ def depth_nodes(G, root):
                 depths[successore] = depths[node] + 1
     nx.set_node_attributes(G, depths, "depth")
     return
-
-
 
 
 T1 = nx.DiGraph()
@@ -176,7 +176,7 @@ for (Tree, root) in Trees:
     #fino a che ci sono nodi che possono essere shrinkati o incorporati lo faccio, poi passo ad inserire l'albero successivo
     nodes_shrinkable = shrinkable(G)
     nodes_incorporable = incorporable(G, Trees)
-    #depth_nodes(G, "alpha")
+    depth_nodes(G, "alpha")
     while nodes_incorporable or nodes_shrinkable:  
         if nodes_incorporable:
             incorporate(G, nodes_incorporable)
@@ -185,7 +185,7 @@ for (Tree, root) in Trees:
             
         nodes_shrinkable = shrinkable(G)
         nodes_incorporable = incorporable(G, Trees)
-        #depth_nodes(G, "alpha")
+        depth_nodes(G, "alpha")
         weight_edges(G, Trees)
     
         pos = nx.shell_layout(G)
@@ -201,7 +201,8 @@ pos = nx.shell_layout(G)
 nx.draw(G, pos, with_labels=True, font_weight="bold")
 edge_labels = {(u, v): d["weight"] for u, v, d in G.edges(data=True)}
 nx.draw_networkx_edge_labels(G, pos, edge_labels=edge_labels, font_color="red", font_size=12)
-plt.show() 
-print("numero archi = " + str(len(G.edges())))       
+plt.show()
+print("numero archi = " + str(len(G.edges()))) 
+            
 
 
