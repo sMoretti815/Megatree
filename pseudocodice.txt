@@ -1,4 +1,7 @@
 def incorporable(G, Trees):
+    input: grafo G e insieme di alberi Trees
+    otuput: lista di tuple di nodi (y, x) in cui y domina x
+
     result = []
     y_candidates = []
     for y in G.nodes    
@@ -17,10 +20,13 @@ def incorporable(G, Trees):
             if not(x.successors ⊆ y.successors):
                 x_candidates.remove(x)     
         for x in x_candidates:
-            result.append((y, x)) y domina x
+            result.append((y, x))
     return
 
 def incorporate(G, nodes_incorporable):
+    input: grafo G e lista di tuple di nodi (y, x) in cui y domina x 
+    output: grafo G dopo l'operazione di incorporate
+
     (y, x) = nodes_incorporable[0]
     for x_predecessor in x.predecessors:
         aggiungo un arco (x_predecessor, y)
@@ -28,6 +34,9 @@ def incorporate(G, nodes_incorporable):
     return
 
 def shrinkable(G):
+    input: grafo G
+    otuput: lista di tuple di nodi (y, x) in cui y può essere "shrinkato" a x
+
     result = []
     y_candidates = lista di tutti i nodi con un solo arco uscente
     for y in y_candidates:
@@ -38,8 +47,28 @@ def shrinkable(G):
             result.append((y, x)) y puù essere "shrinkato" a x
 
 def shrink(G, nodes_shrinkable):
+    input: grafo G e lista di tuple di nodi (y, x) in cui y può essere "shrinkato" a x 
+    output: grafo G dopo l'operazione di shrink
+
     (y, x) = nodes_shrinkable[0]
     z = unico successore di y
     aggiugno un arco (x, z)
     rimuovo y
     return
+
+def encoding(Trees):
+    input: insieme di alberi Trees
+    output: encoding G
+
+    G = nuovografo vuoto
+    aggiungo a G un nodo "alpha"
+    for T in Trees:
+        aggiungo T a G
+        aggiungo un arco (alpha, T.root)
+
+        while nodes_incorporable(G, Trees) or nodes_shrinkable(G):
+            if nodes_incorporable:
+                incorporate(G, nodes_incorporable)
+            else:
+                shrink(G, nodes_shrinkable)
+        
