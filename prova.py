@@ -5,11 +5,11 @@ import matplotlib.pyplot as plt
 import re
 from collections import Counter
 from itertools import chain, combinations
+import os
+#os.environ["PATH"] += os.pathsep + "/opt/local/bin/"
 
 #se un nodo ha due figli con la stessa label non potrà essere mai incorporato?
 #bisogna controllare tutti gli alberi o solo quelli già inseriti?
-
-
 
 def incorporable(G, Trees):
     result=[]
@@ -40,8 +40,8 @@ def incorporable(G, Trees):
           y_candidates.append(y)     
     
     #per ogni y per cui vale la condizione sopra
-    for y in y_candidates:
-        #trovo tutti i nodi x con al stessa labele li salvo in una lista di nodi x possibili
+    for y in G.nodes(): #o G.nodes()?
+        #trovo tutti i nodi x con al stessa label e li salvo in una lista di nodi x possibili
         x_candidates = [x for x in G.nodes() if (y!=x and (G.nodes[y]['label']) == (G.nodes[x]['label']))]
         y_successors = list(G.successors(y))
         count_y = Counter(y_successors)
@@ -131,8 +131,37 @@ def depth_nodes(G, root):
     nx.set_node_attributes(G, depths, "depth")
     return
 
+def shrinkable2(G):
+    result = []
+    
+    #print(y_candidates)
+    for y in G.nodes():
+        #trovo i nodi per cui vale:
+        x_candidates = [node for node in G.nodes() if G.nodes[node]['label'] == G.nodes[y]['label'] and #node e y hanno la stessa label
+                        sorted(list(G.predecessors(node))) == sorted(list(G.predecessors(y))) and #predecessori di node = predecessori di y
+                        y not in nx.descendants(G, node) and #non esite un percorso da node a y
+                        all(y_suc in nx.descendants(G, node) for y_suc in list(G.successors(y))) and #il sucessore di y è un discendente di node
+                        node!=y] #node e y sono due nodi diversi
+        
+        for x in x_candidates:
+            if (len(set(G.successors(y)) - set(G.successors(x))) != 1):
+                x_candidates.remove(x)
+        
+        for x in x_candidates:
+            result.append((y, x))
+    return result
 
-
+def shrink2(G, nodes_shrinkable):
+    (y, x) = nodes_shrinkable[0]
+    #(y, x) = max(nodes_shrinkable, key=lambda x: G.nodes[x[1]]['depth'])
+    print(nodes_shrinkable)
+    print("shrinked")
+    
+    z = (set(G.successors(y)) - set(G.successors(x))).pop()
+    G.add_edge(x, z)
+    G.nodes[x]['mapping'].extend(G.nodes[y]['mapping'])
+    G.remove_node(y)
+    return
 
 T1 = nx.DiGraph()
 T2 = nx.DiGraph()
@@ -146,10 +175,15 @@ T2.add_edges_from([("alpha", "a2"),("a2","b2"), ("b2", "d2"), ("b2","c2"), ("d2"
 T3.add_edges_from([("alpha", "a3"), ("a3","b3"), ("a3", "g3"), ("b3","c3"), ("b3","d3"), ("d3","f3"), ("g3","e3")])
 Trees = [(T1, "a1"),(T2, "a2"),(T3, "a3")]
 
-#T1.add_edges_from([("alpha", "x"), ("x", "a1"), ("x", "b1"), ("b1", "c1")])
-#T2.add_edges_from([("alpha", "x"), ("x", "a2"), ("a2", "b2"), ("x", "c2")])
-#T3.add_edges_from([("alpha", "x"), ("x", "a3"), ("a3", "c3"), ("x", "b3")])
-#Trees = [(T1, "x"),(T2, "x"),(T3, "x")]
+#T1.add_edges_from([("alpha", "x1"), ("x1", "a1"), ("x1", "b1"), ("b1", "c1")])
+#T2.add_edges_from([("alpha", "x2"), ("x2", "a2"), ("a2", "b2"), ("x2", "c2")])
+#T3.add_edges_from([("alpha", "x3"), ("x3", "a3"), ("a3", "c3"), ("x3", "b3")])
+#Trees = [(T1, "x1"),(T2, "x2"),(T3, "x3")]
+
+#T1.add_edges_from([("alpha", "a1"), ("a1","b1"), ("b1","c1"), ("a1","e1"), ("e1","d1")])
+#T2.add_edges_from([("alpha", "a2"),("a2","b2"), ("b2", "d2"), ("a2","c2"), ("b2","e2")])
+#T3.add_edges_from([("alpha", "a3"), ("a3","b3"), ("a3", "e3"), ("b3","c3"), ("b3","d3")])
+#Trees = [(T1, "a1"),(T2, "a2"),(T3, "a3")]
 
 #etichetto i nodi dentro gli alberi
 for (Tree, _) in Trees:
@@ -188,7 +222,7 @@ for (Tree, root) in Trees:
         #depth_nodes(G, "alpha")
         weight_edges(G, Trees)
     
-        pos = nx.shell_layout(G)
+        pos = nx.nx_agraph.graphviz_layout(G, prog="dot")
         nx.draw(G, pos, with_labels=True, font_weight="bold")
         edge_labels = {(u, v): d["weight"] for u, v, d in G.edges(data=True)}
         nx.draw_networkx_edge_labels(G, pos, edge_labels=edge_labels, font_color="red", font_size=12)
@@ -197,7 +231,7 @@ for (Tree, root) in Trees:
 
 weight_edges(G, Trees)
     
-pos = nx.shell_layout(G)
+pos = nx.nx_agraph.graphviz_layout(G, prog="dot")
 nx.draw(G, pos, with_labels=True, font_weight="bold")
 edge_labels = {(u, v): d["weight"] for u, v, d in G.edges(data=True)}
 nx.draw_networkx_edge_labels(G, pos, edge_labels=edge_labels, font_color="red", font_size=12)
