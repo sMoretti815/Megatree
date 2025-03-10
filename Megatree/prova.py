@@ -1,3 +1,4 @@
+
 import matplotlib
 matplotlib.use('TkAgg')
 import networkx as nx
@@ -5,10 +6,9 @@ import matplotlib.pyplot as plt
 import re
 from collections import Counter
 from itertools import chain, combinations
-import os
+import numpy as np
 
-#se un nodo ha due figli con la stessa label non potrà essere mai incorporato?
-#bisogna controllare tutti gli alberi o solo quelli già inseriti?
+
 
 def incorporable(G, Trees):
     result=[]
@@ -159,6 +159,79 @@ def shrink2(G, nodes_shrinkable):
     G.remove_node(y)
     return
 
+def is_displayed(T, G):
+    (T, r) = T
+    t_topological = list(reversed(list(nx.topological_sort(T))))
+    g_topological = list(reversed(list(nx.topological_sort(G))))
+    t_dict = {key : value for (value, key) in enumerate(t_topological)}
+    g_dict = {key : value for (value, key) in enumerate(g_topological)}
+    D = np.zeros((len(t_topological), len(g_topological)))
+    P = {}
+    for (i, x) in enumerate(t_topological):
+        for (j, y) in enumerate(g_topological):
+            P[y] = P.get(y, [])
+            if(T.nodes[x]['label'] != G.nodes[y]['label']):
+                D[i, j] = 0
+            elif T.out_degree(x) == 0:
+                D[i, j] = 1
+            else:
+                D[i, j] = 1
+                for z in T.successors(x):
+                    z_valid = False
+                    for h in G.successors(y):
+                        if D[t_dict[z], g_dict[h]] == 1: 
+                            z_valid = True
+                            P[y].append(h)
+                            break
+                    if z_valid == False:
+                        D[i, j] = 0
+                        break
+    return (D, P)
+    
+def reconstruct_tree(TG, P, y):
+    for z in P[y]:
+        TG.add_edge(y, z)
+        reconstruct_tree(TG, P, z)
+    return
+    
+def insert_tree(T, r, G):
+    insert_node(T, r, G)
+    return
+
+def insert_node(T, r, G):
+    trovato = False
+    for node in G.nodes():
+        if G.nodes[node]['label'] == T.nodes[r]['label'] and list_label(T, sorted(list(T.successors(r)))) == list_label(G, sorted(list(G.successors(node)))):
+            G.nodes[node]['mapping'].append(r)
+            T.nodes[r]['mapped_on'] = node
+            trovato = True
+            break
+            
+    if trovato == False:
+        G.add_node(r, mapping = [r], label = re.search(r'(^\S)', r).group(0))
+        T.nodes[r]['mapped_on'] = r
+        
+    r_predecessor = T.nodes[next(T.predecessors(r))]['mapped_on']
+    G.add_edge(r_predecessor, T.nodes[r]['mapped_on'])
+    pos = nx.nx_agraph.graphviz_layout(G, prog="dot")
+    nx.draw(G, pos, with_labels=True, font_weight="bold")
+    plt.show()
+    
+    for successor in T.successors(r):
+        insert_node(T, successor, G)
+    return
+      
+def list_label(G, list):
+    result = [G.nodes[node]['label'] for node in list]
+    return set(result)
+
+def add_leaves(G, T):
+    for (T, _) in T:
+        leaves = [node for node in T.nodes() if T.out_degree(node) == 0]
+        for leaf in leaves:
+            node = T.nodes[leaf]['mapped_on']
+            G.nodes[T.nodes[leaf]['mapped_on']]['leaf'] = True
+        
 T1 = nx.DiGraph()
 T2 = nx.DiGraph()
 T3 = nx.DiGraph()
@@ -166,46 +239,52 @@ G = nx.DiGraph()
 G.add_node("alpha", label="alpha")
 
 
-T1.add_edges_from([("alpha", "a1"), ("a1","b1"), ("b1", "d1"), ("b1","c1"), ("d1","e1"), ("c1","f1"), ("f1","g1")])
-T2.add_edges_from([("alpha", "a2"),("a2","b2"), ("b2", "d2"), ("b2","c2"), ("d2","f2"), ("c2","e2"), ("a2","g2")])
-T3.add_edges_from([("alpha", "a3"), ("a3","b3"), ("a3", "g3"), ("b3","c3"), ("b3","d3"), ("d3","f3"), ("g3","e3")])
-Trees = [(T1, "a1"),(T2, "a2"),(T3, "a3")]
+#T1.add_edges_from([("alpha", "a1"), ("a1","b1"), ("b1", "d1"), ("b1","c1"), ("d1","e1"), ("c1","f1"), ("f1","g1")])
+#T2.add_edges_from([("alpha", "a2"),("a2","b2"), ("b2", "d2"), ("b2","c2"), ("d2","f2"), ("c2","e2"), ("a2","g2")])
+#T3.add_edges_from([("alpha", "a3"), ("a3","b3"), ("a3", "g3"), ("b3","c3"), ("b3","d3"), ("d3","f3"), ("g3","e3")])
+#Trees = [(T1, "a1"),(T2, "a2"),(T3, "a3")]
 
 #T1.add_edges_from([("alpha", "x1"), ("x1", "a1"), ("x1", "b1"), ("b1", "c1")])
 #T2.add_edges_from([("alpha", "x2"), ("x2", "a2"), ("a2", "b2"), ("x2", "c2")])
 #T3.add_edges_from([("alpha", "x3"), ("x3", "a3"), ("a3", "c3"), ("x3", "b3")])
 #Trees = [(T1, "x1"),(T2, "x2"),(T3, "x3")]
 
-#T1.add_edges_from([("alpha", "a1"), ("a1","b1"), ("b1","c1"), ("a1","e1"), ("e1","d1")])
-#T2.add_edges_from([("alpha", "a2"),("a2","b2"), ("b2", "d2"), ("a2","c2"), ("b2","e2")])
-#T3.add_edges_from([("alpha", "a3"), ("a3","b3"), ("a3", "e3"), ("b3","c3"), ("b3","d3")])
-#Trees = [(T1, "a1"),(T2, "a2"),(T3, "a3")]
+T1.add_edges_from([("alpha", "a1"), ("a1","b1"), ("b1","c1"), ("a1","e1"), ("e1","d1")])
+T2.add_edges_from([("alpha", "a2"),("a2","b2"), ("b2", "d2"), ("a2","c2"), ("b2","e2")])
+T3.add_edges_from([("alpha", "a3"), ("a3","b3"), ("a3", "e3"), ("b3","c3"), ("b3","d3")])
+Trees = [(T1, "a1"),(T2, "a2"),(T3, "a3")]
 
 #etichetto i nodi dentro gli alberi
 for (Tree, _) in Trees:
     for node in Tree.nodes():
-        Tree.nodes[node]['mapping'] = [node]
+        Tree.nodes[node]['mapped_on'] = node
         if node != "alpha":
             Tree.nodes[node]['label'] = re.search(r'(^\S)', node).group(0)
         else:
             Tree.nodes[node]['label'] = "alpha"
+            Tree.nodes[node]['mapped_on'] = "alpha"
 
 #inserico mano a mano ogni albero nel grafo 
 for (Tree, root) in Trees:
-    G.add_nodes_from(Tree.nodes)
-    G.add_edges_from(Tree.edges)
     
-    #etichetto i nodi dentro il grafo
-    for node in Tree.nodes():
-        G.nodes[node]['mapping'] = [node]
-        if node != "alpha":
-            G.nodes[node]['label'] = re.search(r'(^\S)', node).group(0)
-        else:
-            G.nodes[node]['label'] = "z"
+    if nx.is_empty(G):
+        G.add_nodes_from(Tree.nodes)
+        G.add_edges_from(Tree.edges)
+        
+        #etichetto i nodi dentro il grafo
+        for node in Tree.nodes():
+            G.nodes[node]['mapping'] = [node]
+            if node != "alpha":
+                G.nodes[node]['label'] = re.search(r'(^\S)', node).group(0)
+            else:
+                G.nodes[node]['label'] = "alpha"
+    else:
+        insert_tree(Tree, root, G)
+    
     
     #fino a che ci sono nodi che possono essere shrinkati o incorporati lo faccio, poi passo ad inserire l'albero successivo
     nodes_shrinkable = shrinkable(G)
-    nodes_incorporable = incorporable(G, Trees)
+    nodes_incorporable = [] #incorporable(G, Trees)
     #depth_nodes(G, "alpha")
     while nodes_incorporable or nodes_shrinkable:  
         if nodes_incorporable:
@@ -214,24 +293,38 @@ for (Tree, root) in Trees:
             shrink(G, nodes_shrinkable)
             
         nodes_shrinkable = shrinkable(G)
-        nodes_incorporable = incorporable(G, Trees)
+        #nodes_incorporable = incorporable(G, Trees)
         #depth_nodes(G, "alpha")
         weight_edges(G, Trees)
     
-        pos = nx.nx_agraph.graphviz_layout(G, prog="dot")
-        nx.draw(G, pos, with_labels=True, font_weight="bold")
-        edge_labels = {(u, v): d["weight"] for u, v, d in G.edges(data=True)}
-        nx.draw_networkx_edge_labels(G, pos, edge_labels=edge_labels, font_color="red", font_size=12)
-        plt.show()
+        #pos = nx.nx_agraph.graphviz_layout(G, prog="dot")
+        #nx.draw(G, pos, with_labels=True, font_weight="bold")
+        #edge_labels = {(u, v): d["weight"] for u, v, d in G.edges(data=True)}
+        #nx.draw_networkx_edge_labels(G, pos, edge_labels=edge_labels, font_color="red", font_size=12)
+        #plt.show()
 
 
 weight_edges(G, Trees)
+add_leaves(G, Trees)
     
+    
+
 pos = nx.nx_agraph.graphviz_layout(G, prog="dot")
-nx.draw(G, pos, with_labels=True, font_weight="bold")
+leaf_nodes = [n for n, attrs in G.nodes(data=True) if attrs.get("leaf") == True]
+other_nodes = [n for n in G.nodes if n not in leaf_nodes]
 edge_labels = {(u, v): d["weight"] for u, v, d in G.edges(data=True)}
+nx.draw_networkx_nodes(G, pos, nodelist=other_nodes)
+nx.draw_networkx_nodes(G, pos, nodelist=leaf_nodes, node_color="lightgreen", node_shape="s")
+nx.draw_networkx_edges(G, pos)
+nx.draw_networkx_labels(G, pos)
 nx.draw_networkx_edge_labels(G, pos, edge_labels=edge_labels, font_color="red", font_size=12)
 plt.show() 
 print("numero archi = " + str(len(G.edges())))       
 
-
+for T in Trees:
+    (D, P) = is_displayed(T, G)
+    TG = nx.DiGraph()
+    reconstruct_tree(TG, P, "alpha")
+    pos = nx.nx_agraph.graphviz_layout(TG, prog="dot")
+    nx.draw(TG, pos, with_labels=True, font_weight="bold")
+    plt.show()
