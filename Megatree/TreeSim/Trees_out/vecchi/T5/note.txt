@@ -1,0 +1,4 @@
+10 nodi
+1 labelswap
+1 nodemove
+no ordinati

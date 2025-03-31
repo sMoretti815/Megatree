@@ -1,0 +1,74 @@
+def incorporable(G, Trees):
+    input: grafo G e insieme di alberi Trees
+    otuput: lista di tuple di nodi (y, x) in cui y domina x
+
+    result = []
+    y_candidates = []
+    for y in G.nodes    
+        y_successors = y.successors
+        y_valida = true
+        subsets_successors = lista di tutti i sottoinsiemi di y_successors
+        for subset in subset_successors:
+            if non esiste un albero in Trees con un nodo z con z.label == y.label and subset == z.successors:
+                y_valida = false
+        if y_valida:
+            y_candidates.append(y)
+
+    for y in y_candidates:
+        x_candidates = lista di nodi x con x.label = y.label
+        for x in x_candidate:
+            if not(x.successors ⊆ y.successors):
+                x_candidates.remove(x)     
+        for x in x_candidates:
+            result.append((y, x))
+    return
+
+def incorporate(G, nodes_incorporable):
+    input: grafo G e lista di tuple di nodi (y, x) in cui y domina x 
+    output: grafo G dopo l'operazione di incorporate
+
+    (y, x) = nodes_incorporable[0]
+    for x_predecessor in x.predecessors:
+        aggiungo un arco (x_predecessor, y)
+    rimuovo x
+    return
+
+def shrinkable(G):
+    input: grafo G
+    otuput: lista di tuple di nodi (y, x) in cui y può essere "shrinkato" a x
+
+    result = []
+    y_candidates = lista di tutti i nodi con un solo arco uscente
+    for y in y_candidates:
+        z = unico successore di y
+        x_candidates = lista di x per cui vale che: x.label == y.label, x.predecessors == y.predecessors, z è un discendente di x e non esiste un percorso da x a y
+
+        for x in x_candidates:
+            result.append((y, x)) y puù essere "shrinkato" a x
+
+def shrink(G, nodes_shrinkable):
+    input: grafo G e lista di tuple di nodi (y, x) in cui y può essere "shrinkato" a x 
+    output: grafo G dopo l'operazione di shrink
+
+    (y, x) = nodes_shrinkable[0]
+    z = unico successore di y
+    aggiugno un arco (x, z)
+    rimuovo y
+    return
+
+def encoding(Trees):
+    input: insieme di alberi Trees
+    output: encoding G
+
+    G = nuovografo vuoto
+    aggiungo a G un nodo "alpha"
+    for T in Trees:
+        aggiungo T a G
+        aggiungo un arco (alpha, T.root)
+
+        while nodes_incorporable(G, Trees) or nodes_shrinkable(G):
+            if nodes_incorporable:
+                incorporate(G, nodes_incorporable)
+            else:
+                shrink(G, nodes_shrinkable)
+        

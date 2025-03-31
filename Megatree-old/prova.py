@@ -1,13 +1,12 @@
 
 import matplotlib
+matplotlib.use('TkAgg')
 import networkx as nx
 import matplotlib.pyplot as plt
 import re
 from collections import Counter
 from itertools import chain, combinations
 import numpy as np
-import os
-os.environ["PATH"] += os.pathsep + r"C:\Users\Simone\anaconda3\Library\bin"
 
 
 
@@ -140,7 +139,7 @@ def shrinkable2(G):
                         all(y_suc in nx.descendants(G, node) for y_suc in list(G.successors(y))) and #il sucessore di y è un discendente di node
                         node!=y] #node e y sono due nodi diversi
         
-        for x in list(x_candidates):
+        for x in x_candidates:
             if (len(set(G.successors(y)) - set(G.successors(x))) != 1):
                 x_candidates.remove(x)
         
@@ -153,13 +152,6 @@ def shrink2(G, nodes_shrinkable):
     #(y, x) = max(nodes_shrinkable, key=lambda x: G.nodes[x[1]]['depth'])
     print(nodes_shrinkable)
     print("shrinked")
-    
-    pos = nx.nx_agraph.graphviz_layout(G, prog="dot")
-    nx.draw(G, pos, with_labels=True, font_weight="bold")
-    #edge_labels = {(u, v): d["weight"] for u, v, d in G.edges(data=True)}
-    #nx.draw_networkx_edge_labels(G, pos, edge_labels=edge_labels, font_color="red", font_size=12)
-    plt.show()
-
     
     z = (set(G.successors(y)) - set(G.successors(x))).pop()
     G.add_edge(x, z)
@@ -203,14 +195,13 @@ def reconstruct_tree(TG, P, y):
     return
     
 def insert_tree(T, r, G):
-    insert_node3(T, r, G)
+    insert_node(T, r, G)
     return
 
 def insert_node(T, r, G):
     trovato = False
     for node in G.nodes():
         if G.nodes[node]['label'] == T.nodes[r]['label'] and list_label(T, sorted(list(T.successors(r)))) == list_label(G, sorted(list(G.successors(node)))):
-            
             G.nodes[node]['mapping'].append(r)
             T.nodes[r]['mapped_on'] = node
             trovato = True
@@ -222,71 +213,14 @@ def insert_node(T, r, G):
         
     r_predecessor = T.nodes[next(T.predecessors(r))]['mapped_on']
     G.add_edge(r_predecessor, T.nodes[r]['mapped_on'])
-    #pos = nx.nx_agraph.graphviz_layout(G, prog="dot")
-    #nx.draw(G, pos, with_labels=True, font_weight="bold")
-    #plt.show()
+    pos = nx.nx_agraph.graphviz_layout(G, prog="dot")
+    nx.draw(G, pos, with_labels=True, font_weight="bold")
+    plt.show()
     
     for successor in T.successors(r):
         insert_node(T, successor, G)
     return
-
-def insert_node2(T, r, G):
-    candidates = []
-    for node in G.nodes():
-        if G.nodes[node]['label'] == T.nodes[r]['label']:  
-            dif = list_label(T, sorted(list(T.successors(r)))) ^ list_label(G, sorted(list(G.successors(node))))
-            candidates.append((len(dif), node))
-    
-    (length, node)= min(candidates)
-    
-
-    if length <= len(list(T.successors(r))):
-        G.nodes[node]['mapping'].append(r)
-        T.nodes[r]['mapped_on'] = node         
-    else:
-        G.add_node(r, mapping = [r], label = re.search(r'(^\S)', r).group(0))
-        T.nodes[r]['mapped_on'] = r
-            
-    r_predecessor = T.nodes[next(T.predecessors(r))]['mapped_on']
-    G.add_edge(r_predecessor, T.nodes[r]['mapped_on'])
-    #pos = nx.nx_agraph.graphviz_layout(G, prog="dot")
-    #nx.draw(G, pos, with_labels=True, font_weight="bold")
-    #plt.show()
-    
-    for successor in T.successors(r):
-        insert_node2(T, successor, G)
-    return
-
-def insert_node3(T, r, G):
-    candidates = []
-    trovato = False
-    r_predecessor = T.nodes[next(T.predecessors(r))]['mapped_on']
-    for node in G.nodes():
-        if G.nodes[node]['label'] == T.nodes[r]['label'] and list_label(T, sorted(list(T.successors(r)))) <= list_label(G, sorted(list(G.successors(node)))):
-            node_descendants = nx.descendants(G, node)
-            if r_predecessor not in node_descendants:
-                dif = list_label(G, sorted(list(G.successors(node)))) - list_label(T, sorted(list(T.successors(r))))
-                candidates.append((len(dif), node))
-                trovato = True
-    
-    
-    if trovato:
-        (length, node)= min(candidates)
-        G.nodes[node]['mapping'].append(r)
-        T.nodes[r]['mapped_on'] = node         
-    else:
-        G.add_node(r, mapping = [r], label = re.search(r'(^\S)', r).group(0))
-        T.nodes[r]['mapped_on'] = r
-
-    G.add_edge(r_predecessor, T.nodes[r]['mapped_on'])
-    #pos = nx.nx_agraph.graphviz_layout(G, prog="dot")
-    #nx.draw(G, pos, with_labels=True, font_weight="bold")
-    #plt.show()
-    
-    for successor in T.successors(r):
-        insert_node3(T, successor, G)
-    return
-
+      
 def list_label(G, list):
     result = [G.nodes[node]['label'] for node in list]
     return set(result)
@@ -294,42 +228,31 @@ def list_label(G, list):
 def add_leaves(G, T):
     for (T, _) in T:
         leaves = [node for node in T.nodes() if T.out_degree(node) == 0]
-        for node in G.nodes():
-            if set(G.nodes[node]['mapping']) & set(leaves):
-                G.nodes[node]['leaf'] = True
+        for leaf in leaves:
+            node = T.nodes[leaf]['mapped_on']
+            G.nodes[T.nodes[leaf]['mapped_on']]['leaf'] = True
         
 T1 = nx.DiGraph()
 T2 = nx.DiGraph()
 T3 = nx.DiGraph()
-T4 = nx.DiGraph()
 G = nx.DiGraph()
 G.add_node("alpha", label="alpha")
+
 
 #T1.add_edges_from([("alpha", "a1"), ("a1","b1"), ("b1", "d1"), ("b1","c1"), ("d1","e1"), ("c1","f1"), ("f1","g1")])
 #T2.add_edges_from([("alpha", "a2"),("a2","b2"), ("b2", "d2"), ("b2","c2"), ("d2","f2"), ("c2","e2"), ("a2","g2")])
 #T3.add_edges_from([("alpha", "a3"), ("a3","b3"), ("a3", "g3"), ("b3","c3"), ("b3","d3"), ("d3","f3"), ("g3","e3")])
-#T4.add_edges_from([("alpha", "a4"), ("a4","b4"), ("b4", "d4"), ("d4","c4"), ("c4","e4")])
-#Trees = [(T1, "a1"),(T2, "a2"),(T3, "a3"), (T4, "a4")]
+#Trees = [(T1, "a1"),(T2, "a2"),(T3, "a3")]
 
 #T1.add_edges_from([("alpha", "x1"), ("x1", "a1"), ("x1", "b1"), ("b1", "c1")])
 #T2.add_edges_from([("alpha", "x2"), ("x2", "a2"), ("a2", "b2"), ("x2", "c2")])
 #T3.add_edges_from([("alpha", "x3"), ("x3", "a3"), ("a3", "c3"), ("x3", "b3")])
 #Trees = [(T1, "x1"),(T2, "x2"),(T3, "x3")]
 
-#T1.add_edges_from([("alpha", "a1"), ("a1","b1"), ("b1","c1"), ("a1","e1"), ("e1","d1")])
-#T2.add_edges_from([("alpha", "a2"),("a2","b2"), ("b2", "d2"), ("a2","c2"), ("b2","e2")])
-#T3.add_edges_from([("alpha", "a3"), ("a3","b3"), ("a3", "e3"), ("b3","c3"), ("b3","d3")])
-#Trees = [(T1, "a1"),(T2, "a2"),(T3, "a3")]
-
-#T1.add_edges_from([("alpha", "a1"), ("a1", "b1"), ("b1", "c1")])
-#T2.add_edges_from([("alpha", "b2"), ("b2", "c2"), ("c2", "a2")])
-#T3.add_edges_from([("alpha", "c3"), ("c3", "a3"), ("a3", "b3")])
-#Trees = [(T1, "a1"),(T2, "b2"),(T3, "c3")]
-
-
-T1.add_edges_from([("alpha", "a1"), ("a1", "b1"), ("b1", "c1")])
-T2.add_edges_from([("alpha", "b2"), ("b2", "c2"), ("c2", "a2")])
-Trees = [(T1, "a1"),(T2, "b2")]
+T1.add_edges_from([("alpha", "a1"), ("a1","b1"), ("b1","c1"), ("a1","e1"), ("e1","d1")])
+T2.add_edges_from([("alpha", "a2"),("a2","b2"), ("b2", "d2"), ("a2","c2"), ("b2","e2")])
+T3.add_edges_from([("alpha", "a3"), ("a3","b3"), ("a3", "e3"), ("b3","c3"), ("b3","d3")])
+Trees = [(T1, "a1"),(T2, "a2"),(T3, "a3")]
 
 #etichetto i nodi dentro gli alberi
 for (Tree, _) in Trees:
@@ -340,17 +263,8 @@ for (Tree, _) in Trees:
         else:
             Tree.nodes[node]['label'] = "alpha"
             Tree.nodes[node]['mapped_on'] = "alpha"
-    pos = nx.nx_agraph.graphviz_layout(Tree, prog="dot")
-    other_nodes = [n for n in Tree.nodes if n != "alpha"]
-    #nx.draw_networkx_nodes(Tree, pos, nodelist=other_nodes)
-    labels = nx.get_node_attributes(Tree, 'label')
-    labels = {k: v for k, v in labels.items() if k != "alpha"}
-    edges_to_draw = [(u, v) for u, v in Tree.edges if u != "alpha"]
-    #nx.draw_networkx_edges(Tree, pos, edgelist=edges_to_draw)
-    #nx.draw_networkx_labels(Tree, pos, labels)
-    #plt.show()
 
-#inserico mano a mano ogni albero nel grafo
+#inserico mano a mano ogni albero nel grafo 
 for (Tree, root) in Trees:
     
     if nx.is_empty(G):
@@ -369,8 +283,8 @@ for (Tree, root) in Trees:
     
     
     #fino a che ci sono nodi che possono essere shrinkati o incorporati lo faccio, poi passo ad inserire l'albero successivo
-    nodes_shrinkable = []#shrinkable(G)
-    nodes_incorporable = []#incorporable(G, Trees)
+    nodes_shrinkable = shrinkable(G)
+    nodes_incorporable = [] #incorporable(G, Trees)
     #depth_nodes(G, "alpha")
     while nodes_incorporable or nodes_shrinkable:  
         if nodes_incorporable:
@@ -378,7 +292,7 @@ for (Tree, root) in Trees:
         else:
             shrink(G, nodes_shrinkable)
             
-        #nodes_shrinkable = shrinkable(G)
+        nodes_shrinkable = shrinkable(G)
         #nodes_incorporable = incorporable(G, Trees)
         #depth_nodes(G, "alpha")
         weight_edges(G, Trees)
@@ -392,6 +306,8 @@ for (Tree, root) in Trees:
 
 weight_edges(G, Trees)
 add_leaves(G, Trees)
+    
+    
 
 pos = nx.nx_agraph.graphviz_layout(G, prog="dot")
 leaf_nodes = [n for n, attrs in G.nodes(data=True) if attrs.get("leaf") == True]
@@ -399,17 +315,16 @@ other_nodes = [n for n in G.nodes if n not in leaf_nodes]
 edge_labels = {(u, v): d["weight"] for u, v, d in G.edges(data=True)}
 nx.draw_networkx_nodes(G, pos, nodelist=other_nodes)
 nx.draw_networkx_nodes(G, pos, nodelist=leaf_nodes, node_color="lightgreen", node_shape="s")
-labels = nx.get_node_attributes(G, 'label')
 nx.draw_networkx_edges(G, pos)
-nx.draw_networkx_labels(G, pos, labels)
+nx.draw_networkx_labels(G, pos)
 nx.draw_networkx_edge_labels(G, pos, edge_labels=edge_labels, font_color="red", font_size=12)
-plt.show()
+plt.show() 
 print("numero archi = " + str(len(G.edges())))       
 
 for T in Trees:
     (D, P) = is_displayed(T, G)
     TG = nx.DiGraph()
     reconstruct_tree(TG, P, "alpha")
-    #pos = nx.nx_agraph.graphviz_layout(TG, prog="dot")
-    #nx.draw(TG, pos, with_labels=True, font_weight="bold")
-    #plt.show()
+    pos = nx.nx_agraph.graphviz_layout(TG, prog="dot")
+    nx.draw(TG, pos, with_labels=True, font_weight="bold")
+    plt.show()

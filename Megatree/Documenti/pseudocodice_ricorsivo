@@ -1,0 +1,17 @@
+insert_tree(T, root, G):
+    mapped = False
+    for node in G.nodes:
+        if (label(root) == label(node) and labels(root.successors) == labels(node.successors)):
+            root.mapped_on = node
+            mapped = True
+
+    if mapped = False:
+        G.add_node(root) 
+        root.mapped_on = root
+
+    G.add_edge(root.predecessor.mapped_on, root.mapped_on)
+
+    for successor in root.successors:
+        insert_tree(T, successor, G)
+        
+    return

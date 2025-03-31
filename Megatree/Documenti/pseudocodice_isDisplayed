@@ -1,0 +1,28 @@
+isDisplayed(T, G):
+    t_topological = ordine topologico inverso dei nodi di T (parto dalle foglie)
+    g_topological = ordine topologico inverso dei nodi di G (parto dalle foglie)
+
+    D = matrice len(t_topological) X len(g_topological)
+    D[i, j] = True se il sottoalbero con radice Xi è "uguale" a un sottoalbero in G con radice Yi
+
+    for (i, x) in enumerate(t_topological):
+        for (j, y) in enumerate(g_topological):
+
+
+
+            if label(x) != label(y):
+                D[i, j] = False
+            elif isLeaf(x):
+                D[i, j] = True
+            else:
+                for z in x.successors:
+                    z_valid = False
+                    D[i, j] = True
+                    for h in y.successors:
+                        if D[index(z), index(h)] == True:  (indici dei nodi in enumerate)
+                            z_valid = True
+                    
+                    if z_valid == False:
+                        D[i, j] = False
+    
+    return(D[index(T.root), index(G.root)])
