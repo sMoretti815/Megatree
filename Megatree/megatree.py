@@ -166,7 +166,7 @@ def reconstruct_tree(TG, P, y):
         reconstruct_tree(TG, P, z)
     return
 
-def insert_tree(T, r, G):
+def insert_tree_rilassato(T, r, G):
     candidates = []
     trovato = False
     in_degree = T.in_degree(r)
@@ -200,7 +200,7 @@ def insert_tree(T, r, G):
     #plt.show()
     
     for successor in T.successors(r):
-        insert_tree(T, successor, G)
+        insert_tree_rilassato(T, successor, G)
     return
 
 def list_label(G, list):
@@ -217,6 +217,45 @@ def add_leaves(G, T):
         for node in leaf_nodes:
             G.nodes[node]['shape'] = "square"
 
+def insert_tree_intersect(T, r, G):
+    candidates = []
+    trovato = False
+    in_degree = T.in_degree(r)
+    if in_degree == 0:
+        r_predecessor = "alpha"
+    else:
+        r_predecessor = T.nodes[next(T.predecessors(r))]['mapped_on']
+
+    for node in G.nodes():
+        if G.nodes[node]['label'] == T.nodes[r]['label']:
+            if list_label(T, sorted(list(T.successors(r)))) == list_label(G, sorted(list(G.successors(node)))) or list_label(T, sorted(list(T.successors(r)))) & list_label(G, sorted(list(G.successors(node)))):
+                node_descendants = nx.descendants(G, node)
+                if r_predecessor not in node_descendants:
+                    dif = list_label(G, sorted(list(G.successors(node)))) ^ list_label(T, sorted(list(T.successors(r))))
+                    candidates.append((len(dif), node))
+                    trovato = True
+    
+    if trovato:
+        (length, node)= min(candidates)
+        G.nodes[node]['mapping'].append(r + T.graph["num"] )
+        T.nodes[r]['mapped_on'] = node         
+    else:
+        newNode = r + T.graph["num"]
+        G.add_node(newNode , mapping = [newNode], label = T.nodes[r]['label'])
+        T.nodes[r]['mapped_on'] = newNode
+
+    G.add_edge(r_predecessor, T.nodes[r]['mapped_on'])
+    #pos = nx.nx_agraph.graphviz_layout(G, prog="dot")
+    #nx.draw(G, pos, with_labels=True, font_weight="bold")
+    #plt.show()
+    
+    for successor in T.successors(r):
+        insert_tree_intersect(T, successor, G)
+    return
+
+def level_procedure(T, r, G):
+    
+    return
 
 
 G = nx.DiGraph()
@@ -226,7 +265,9 @@ G.nodes["alpha"]["label"] = "alpha"
 G.nodes["alpha"]["mapping"] = ["alpha"]
 file_list = []
 Trees = []
+
 T_version = "T11"
+op = insert_tree_intersect
 
 
 for (i, file) in enumerate(os.listdir("TreeSim\\Trees_out\\" + T_version)):
@@ -234,6 +275,7 @@ for (i, file) in enumerate(os.listdir("TreeSim\\Trees_out\\" + T_version)):
         T = nx.DiGraph(nx.drawing.nx_agraph.read_dot("TreeSim\\Trees_out\\" + T_version + "\\" + file))
         r = [r for r, d in T.in_degree() if d == 0 ]
         T.graph["num"] = "-" + str(i)
+        depth_nodes(T, r[0])
         Trees.append((T, r[0]))
 
 #for (Tree, _) in Trees:
@@ -250,12 +292,12 @@ for (i, file) in enumerate(os.listdir("TreeSim\\Trees_out\\" + T_version)):
 #inserico mano a mano ogni albero nel grafo
 for (i, (Tree, root)) in enumerate(Trees):
 
-    insert_tree(Tree, root, G)
+    op(Tree, root, G)
     
     #fino a che ci sono nodi che possono essere shrinkati o incorporati lo faccio, poi passo ad inserire l'albero successivo
     nodes_shrinkable = []#shrinkable(G)
     nodes_incorporable = []#incorporable(G, Trees)
-    #depth_nodes(G, "alpha")
+    depth_nodes(G, "alpha")
     while nodes_incorporable or nodes_shrinkable:  
         if nodes_incorporable:
             incorporate(G, nodes_incorporable)
@@ -270,11 +312,11 @@ for (i, (Tree, root)) in enumerate(Trees):
     add_leaves(G, Trees)
     O = nx.nx_agraph.to_agraph(G)
     O = graphviz.Source(O.to_string())
-    outName = "Resources\\Megatree_" + T_version + "_" + str(i)
+    outName = "Resources\\Megatree_" + T_version + "_" + str(i) + op.__name__
     O.render(outName, format="pdf", cleanup=True)
-    #img_data = O.pipe(format='png')
-    #img = mpimg.imread(BytesIO(img_data), format='png')
-    #plt.axis('off')
+    img_data = O.pipe(format='png')
+    img = mpimg.imread(BytesIO(img_data), format='png')
+    plt.axis('off')
     #plt.imshow(img)
     #plt.show()
 
@@ -298,7 +340,7 @@ outName = "TreeSim\\Trees_out\\" + T_version + "\\" + "Megatree_" + T_version
 
 nx.drawing.nx_agraph.write_dot(G, outName + ".txt")
 graph = graphviz.Source.from_file(outName + ".txt")
-graph.render(outName + "_pdf", format="pdf", cleanup=True)
+graph.render(outName + op.__name__ + "_pdf", format="pdf", cleanup=True)
 
 
 for (T, r) in Trees:
