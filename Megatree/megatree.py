@@ -254,7 +254,30 @@ def insert_tree_intersect(T, r, G):
     return
 
 def level_procedure(T, r, G):
-    
+    in_degree = T.in_degree(r)
+
+    if in_degree == 0:
+        r_predecessor = "alpha"
+    else:
+        r_predecessor = T.nodes[next(T.predecessors(r))]['mapped_on']
+
+
+
+    same_depth = [node for node in G.nodes() if G.nodes[node]['depth'] == T.nodes[r]['depth'] + 1 and G.nodes[node]['label'] == T.nodes[r]['label']]
+
+    if len(same_depth) == 0:
+        newNode = r + T.graph["num"]
+        G.add_node(newNode , mapping = [newNode], label = T.nodes[r]['label'])
+        G.nodes[newNode]['depth'] = T.nodes[r]['depth'] + 1
+        T.nodes[r]['mapped_on'] = newNode
+    else:
+        G.nodes[same_depth[0]]['mapping'].append(r + T.graph["num"] )
+        T.nodes[r]['mapped_on'] = same_depth[0]
+
+    G.add_edge(r_predecessor, T.nodes[r]['mapped_on'])
+
+    for successor in T.successors(r):
+        level_procedure(T, successor, G)
     return
 
 
@@ -263,11 +286,12 @@ G = nx.DiGraph()
 G.add_node("alpha")
 G.nodes["alpha"]["label"] = "alpha"
 G.nodes["alpha"]["mapping"] = ["alpha"]
+G.nodes["alpha"]["depth"] = 0
 file_list = []
 Trees = []
 
 T_version = "T11"
-op = insert_tree_intersect
+op = level_procedure
 
 
 for (i, file) in enumerate(os.listdir("TreeSim\\Trees_out\\" + T_version)):

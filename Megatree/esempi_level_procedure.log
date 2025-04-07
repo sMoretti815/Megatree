@@ -1,0 +1,747 @@
+This is pdfTeX, Version 3.141592653-2.6-1.40.26 (TeX Live 2024) (preloaded format=pdflatex 2024.9.30)  7 APR 2025 15:06
+entering extended mode
+ restricted \write18 enabled.
+ file:line:error style messages enabled.
+ %&-line parsing enabled.
+**c:/Users/Simone/Desktop/Megatree/Megatree/esempi_level_procedure.tex
+(c:/Users/Simone/Desktop/Megatree/Megatree/esempi_level_procedure.tex
+LaTeX2e <2024-06-01> patch level 2
+L3 programming layer <2024-09-10>
+(c:/texlive/2024/texmf-dist/tex/latex/base/article.cls
+Document Class: article 2024/02/08 v1.4n Standard LaTeX document class
+(c:/texlive/2024/texmf-dist/tex/latex/base/size10.clo
+File: size10.clo 2024/02/08 v1.4n Standard LaTeX file (size option)
+)
+\c@part=\count194
+\c@section=\count195
+\c@subsection=\count196
+\c@subsubsection=\count197
+\c@paragraph=\count198
+\c@subparagraph=\count199
+\c@figure=\count266
+\c@table=\count267
+\abovecaptionskip=\skip49
+\belowcaptionskip=\skip50
+\bibindent=\dimen141
+) (c:/texlive/2024/texmf-dist/tex/latex/graphics/graphicx.sty
+Package: graphicx 2021/09/16 v1.2d Enhanced LaTeX Graphics (DPC,SPQR)
+ (c:/texlive/2024/texmf-dist/tex/latex/graphics/keyval.sty
+Package: keyval 2022/05/29 v1.15 key=value parser (DPC)
+\KV@toks@=\toks17
+) (c:/texlive/2024/texmf-dist/tex/latex/graphics/graphics.sty
+Package: graphics 2024/05/23 v1.4g Standard LaTeX Graphics (DPC,SPQR)
+ (c:/texlive/2024/texmf-dist/tex/latex/graphics/trig.sty
+Package: trig 2023/12/02 v1.11 sin cos tan (DPC)
+) (c:/texlive/2024/texmf-dist/tex/latex/graphics-cfg/graphics.cfg
+File: graphics.cfg 2016/06/04 v1.11 sample graphics configuration
+)
+Package graphics Info: Driver file: pdftex.def on input line 106.
+ (c:/texlive/2024/texmf-dist/tex/latex/graphics-def/pdftex.def
+File: pdftex.def 2024/04/13 v1.2c Graphics/color driver for pdftex
+))
+\Gin@req@height=\dimen142
+\Gin@req@width=\dimen143
+) (c:/texlive/2024/texmf-dist/tex/latex/geometry/geometry.sty
+Package: geometry 2020/01/02 v5.9 Page Geometry
+ (c:/texlive/2024/texmf-dist/tex/generic/iftex/ifvtex.sty
+Package: ifvtex 2019/10/25 v1.7 ifvtex legacy package. Use iftex instead.
+ (c:/texlive/2024/texmf-dist/tex/generic/iftex/iftex.sty
+Package: iftex 2022/02/03 v1.0f TeX engine tests
+))
+\Gm@cnth=\count268
+\Gm@cntv=\count269
+\c@Gm@tempcnt=\count270
+\Gm@bindingoffset=\dimen144
+\Gm@wd@mp=\dimen145
+\Gm@odd@mp=\dimen146
+\Gm@even@mp=\dimen147
+\Gm@layoutwidth=\dimen148
+\Gm@layoutheight=\dimen149
+\Gm@layouthoffset=\dimen150
+\Gm@layoutvoffset=\dimen151
+\Gm@dimlist=\toks18
+) (c:/texlive/2024/texmf-dist/tex/latex/l3backend/l3backend-pdftex.def
+File: l3backend-pdftex.def 2024-05-08 L3 backend support: PDF output (pdfTeX)
+\l__color_backend_stack_int=\count271
+\l__pdf_internal_box=\box52
+) (./esempi_level_procedure.aux)
+\openout1 = `esempi_level_procedure.aux'.
+
+LaTeX Font Info:    Checking defaults for OML/cmm/m/it on input line 7.
+LaTeX Font Info:    ... okay on input line 7.
+LaTeX Font Info:    Checking defaults for OMS/cmsy/m/n on input line 7.
+LaTeX Font Info:    ... okay on input line 7.
+LaTeX Font Info:    Checking defaults for OT1/cmr/m/n on input line 7.
+LaTeX Font Info:    ... okay on input line 7.
+LaTeX Font Info:    Checking defaults for T1/cmr/m/n on input line 7.
+LaTeX Font Info:    ... okay on input line 7.
+LaTeX Font Info:    Checking defaults for TS1/cmr/m/n on input line 7.
+LaTeX Font Info:    ... okay on input line 7.
+LaTeX Font Info:    Checking defaults for OMX/cmex/m/n on input line 7.
+LaTeX Font Info:    ... okay on input line 7.
+LaTeX Font Info:    Checking defaults for U/cmr/m/n on input line 7.
+LaTeX Font Info:    ... okay on input line 7.
+ (c:/texlive/2024/texmf-dist/tex/context/base/mkii/supp-pdf.mkii
+[Loading MPS to PDF converter (version 2006.09.02).]
+\scratchcounter=\count272
+\scratchdimen=\dimen152
+\scratchbox=\box53
+\nofMPsegments=\count273
+\nofMParguments=\count274
+\everyMPshowfont=\toks19
+\MPscratchCnt=\count275
+\MPscratchDim=\dimen153
+\MPnumerator=\count276
+\makeMPintoPDFobject=\count277
+\everyMPtoPDFconversion=\toks20
+) (c:/texlive/2024/texmf-dist/tex/latex/epstopdf-pkg/epstopdf-base.sty
+Package: epstopdf-base 2020-01-24 v2.11 Base part for package epstopdf
+Package epstopdf-base Info: Redefining graphics rule for `.eps' on input line 485.
+ (c:/texlive/2024/texmf-dist/tex/latex/latexconfig/epstopdf-sys.cfg
+File: epstopdf-sys.cfg 2010/07/13 v1.3 Configuration of (r)epstopdf for TeX Live
+))
+*geometry* driver: auto-detecting
+*geometry* detected driver: pdftex
+*geometry* verbose mode - [ preamble ] result:
+* driver: pdftex
+* paper: a4paper
+* layout: <same size as paper>
+* layoutoffset:(h,v)=(0.0pt,0.0pt)
+* modes: 
+* h-part:(L,W,R)=(14.22636pt, 569.05515pt, 14.22636pt)
+* v-part:(T,H,B)=(14.22636pt, 816.59412pt, 14.22636pt)
+* \paperwidth=597.50787pt
+* \paperheight=845.04684pt
+* \textwidth=569.05515pt
+* \textheight=816.59412pt
+* \oddsidemargin=-58.04362pt
+* \evensidemargin=-58.04362pt
+* \topmargin=-95.04362pt
+* \headheight=12.0pt
+* \headsep=25.0pt
+* \topskip=10.0pt
+* \footskip=30.0pt
+* \marginparwidth=65.0pt
+* \marginparsep=11.0pt
+* \columnsep=10.0pt
+* \skip\footins=9.0pt plus 4.0pt minus 2.0pt
+* \hoffset=0.0pt
+* \voffset=0.0pt
+* \mag=1000
+* \@twocolumnfalse
+* \@twosidefalse
+* \@mparswitchfalse
+* \@reversemarginfalse
+* (1in=72.27pt=25.4mm, 1cm=28.453pt)
+
+
+
+pdfTeX warning: pdflatex.exe (file ./TreeSim/Trees_out/T10/T10_V1.gv.pdf): PDF inclusion: found PDF version <1.7>, but at most version <1.5> allowed
+<TreeSim/Trees_out/T10/T10_V1.gv.pdf, id=1, 351.3125pt x 333.245pt>
+File: TreeSim/Trees_out/T10/T10_V1.gv.pdf Graphic file (type pdf)
+<use TreeSim/Trees_out/T10/T10_V1.gv.pdf>
+Package pdftex.def Info: TreeSim/Trees_out/T10/T10_V1.gv.pdf  used on input line 14.
+(pdftex.def)             Requested size: 351.31163pt x 333.24417pt.
+LaTeX Font Info:    External font `cmex10' loaded for size
+(Font)              <7> on input line 15.
+LaTeX Font Info:    External font `cmex10' loaded for size
+(Font)              <5> on input line 15.
+
+
+pdfTeX warning: pdflatex.exe (file ./Resources/Megatree_T10_0level_procedure.pdf): PDF inclusion: found PDF version <1.7>, but at most version <1.5> allowed
+<Resources/Megatree_T10_0level_procedure.pdf, id=2, 301.125pt x 471.7625pt>
+File: Resources/Megatree_T10_0level_procedure.pdf Graphic file (type pdf)
+<use Resources/Megatree_T10_0level_procedure.pdf>
+Package pdftex.def Info: Resources/Megatree_T10_0level_procedure.pdf  used on input line 20.
+(pdftex.def)             Requested size: 301.12425pt x 471.76134pt.
+
+
+pdfTeX warning: pdflatex.exe (file ./TreeSim/Trees_out/T10/T10_V2.gv_pdf.pdf): PDF inclusion: found PDF version <1.7>, but at most version <1.5> allowed
+<TreeSim/Trees_out/T10/T10_V2.gv_pdf.pdf, id=3, 351.3125pt x 333.245pt>
+File: TreeSim/Trees_out/T10/T10_V2.gv_pdf.pdf Graphic file (type pdf)
+<use TreeSim/Trees_out/T10/T10_V2.gv_pdf.pdf>
+Package pdftex.def Info: TreeSim/Trees_out/T10/T10_V2.gv_pdf.pdf  used on input line 27.
+(pdftex.def)             Requested size: 351.31163pt x 333.24417pt.
+
+
+pdfTeX warning: pdflatex.exe (file ./Resources/Megatree_T10_1level_procedure.pdf): PDF inclusion: found PDF version <1.7>, but at most version <1.5> allowed
+<Resources/Megatree_T10_1level_procedure.pdf, id=4, 297.11pt x 471.7625pt>
+File: Resources/Megatree_T10_1level_procedure.pdf Graphic file (type pdf)
+<use Resources/Megatree_T10_1level_procedure.pdf>
+Package pdftex.def Info: Resources/Megatree_T10_1level_procedure.pdf  used on input line 33.
+(pdftex.def)             Requested size: 297.10927pt x 471.76134pt.
+
+LaTeX Warning: Float too large for page by 39.74788pt on input line 35.
+
+
+
+pdfTeX warning: pdflatex.exe (file ./TreeSim/Trees_out/T10/T10_V3.gv_pdf.pdf): PDF inclusion: found PDF version <1.7>, but at most version <1.5> allowed
+<TreeSim/Trees_out/T10/T10_V3.gv_pdf.pdf, id=5, 351.3125pt x 333.245pt>
+File: TreeSim/Trees_out/T10/T10_V3.gv_pdf.pdf Graphic file (type pdf)
+<use TreeSim/Trees_out/T10/T10_V3.gv_pdf.pdf>
+Package pdftex.def Info: TreeSim/Trees_out/T10/T10_V3.gv_pdf.pdf  used on input line 42.
+(pdftex.def)             Requested size: 351.31163pt x 333.24417pt.
+
+
+pdfTeX warning: pdflatex.exe (file ./Resources/Megatree_T10_2level_procedure.pdf): PDF inclusion: found PDF version <1.7>, but at most version <1.5> allowed
+<Resources/Megatree_T10_2level_procedure.pdf, id=6, 279.0425pt x 471.7625pt>
+File: Resources/Megatree_T10_2level_procedure.pdf Graphic file (type pdf)
+<use Resources/Megatree_T10_2level_procedure.pdf>
+Package pdftex.def Info: Resources/Megatree_T10_2level_procedure.pdf  used on input line 48.
+(pdftex.def)             Requested size: 279.04181pt x 471.76134pt.
+
+
+pdfTeX warning: pdflatex.exe (file ./TreeSim/Trees_out/T10/T10_V4.gv_pdf.pdf): PDF inclusion: found PDF version <1.7>, but at most version <1.5> allowed
+<TreeSim/Trees_out/T10/T10_V4.gv_pdf.pdf, id=7, 279.0425pt x 405.515pt>
+File: TreeSim/Trees_out/T10/T10_V4.gv_pdf.pdf Graphic file (type pdf)
+<use TreeSim/Trees_out/T10/T10_V4.gv_pdf.pdf>
+Package pdftex.def Info: TreeSim/Trees_out/T10/T10_V4.gv_pdf.pdf  used on input line 55.
+(pdftex.def)             Requested size: 279.04181pt x 405.51399pt.
+
+
+pdfTeX warning: pdflatex.exe (file ./Resources/Megatree_T10_3level_procedure.pdf): PDF inclusion: found PDF version <1.7>, but at most version <1.5> allowed
+<Resources/Megatree_T10_3level_procedure.pdf, id=8, 279.0425pt x 561.09625pt>
+File: Resources/Megatree_T10_3level_procedure.pdf Graphic file (type pdf)
+<use Resources/Megatree_T10_3level_procedure.pdf>
+Package pdftex.def Info: Resources/Megatree_T10_3level_procedure.pdf  used on input line 61.
+(pdftex.def)             Requested size: 279.04181pt x 561.09488pt.
+
+
+pdfTeX warning: pdflatex.exe (file ./TreeSim/Trees_out/T11/T11_V1.gv.pdf): PDF inclusion: found PDF version <1.7>, but at most version <1.5> allowed
+<TreeSim/Trees_out/T11/T11_V1.gv.pdf, id=9, 351.3125pt x 260.975pt>
+File: TreeSim/Trees_out/T11/T11_V1.gv.pdf Graphic file (type pdf)
+<use TreeSim/Trees_out/T11/T11_V1.gv.pdf>
+Package pdftex.def Info: TreeSim/Trees_out/T11/T11_V1.gv.pdf  used on input line 70.
+(pdftex.def)             Requested size: 351.31163pt x 260.97437pt.
+
+
+pdfTeX warning: pdflatex.exe (file ./Resources/Megatree_T11_0level_procedure.pdf): PDF inclusion: found PDF version <1.7>, but at most version <1.5> allowed
+<Resources/Megatree_T11_0level_procedure.pdf, id=10, 279.0425pt x 383.4325pt>
+File: Resources/Megatree_T11_0level_procedure.pdf Graphic file (type pdf)
+<use Resources/Megatree_T11_0level_procedure.pdf>
+Package pdftex.def Info: Resources/Megatree_T11_0level_procedure.pdf  used on input line 76.
+(pdftex.def)             Requested size: 279.04181pt x 383.43156pt.
+
+
+pdfTeX warning: pdflatex.exe (file ./TreeSim/Trees_out/T11/T11_V2.gv_pdf.pdf): PDF inclusion: found PDF version <1.7>, but at most version <1.5> allowed
+<TreeSim/Trees_out/T11/T11_V2.gv_pdf.pdf, id=11, 351.3125pt x 260.975pt>
+File: TreeSim/Trees_out/T11/T11_V2.gv_pdf.pdf Graphic file (type pdf)
+<use TreeSim/Trees_out/T11/T11_V2.gv_pdf.pdf>
+Package pdftex.def Info: TreeSim/Trees_out/T11/T11_V2.gv_pdf.pdf  used on input line 83.
+(pdftex.def)             Requested size: 351.31163pt x 260.97437pt.
+
+
+pdfTeX warning: pdflatex.exe (file ./Resources/Megatree_T11_1level_procedure.pdf): PDF inclusion: found PDF version <1.7>, but at most version <1.5> allowed
+<Resources/Megatree_T11_1level_procedure.pdf, id=12, 279.0425pt x 383.4325pt>
+File: Resources/Megatree_T11_1level_procedure.pdf Graphic file (type pdf)
+<use Resources/Megatree_T11_1level_procedure.pdf>
+Package pdftex.def Info: Resources/Megatree_T11_1level_procedure.pdf  used on input line 89.
+(pdftex.def)             Requested size: 279.04181pt x 383.43156pt.
+
+
+pdfTeX warning: pdflatex.exe (file ./TreeSim/Trees_out/T11/T11_V3.gv_pdf.pdf): PDF inclusion: found PDF version <1.7>, but at most version <1.5> allowed
+<TreeSim/Trees_out/T11/T11_V3.gv_pdf.pdf, id=13, 351.3125pt x 260.975pt>
+File: TreeSim/Trees_out/T11/T11_V3.gv_pdf.pdf Graphic file (type pdf)
+<use TreeSim/Trees_out/T11/T11_V3.gv_pdf.pdf>
+Package pdftex.def Info: TreeSim/Trees_out/T11/T11_V3.gv_pdf.pdf  used on input line 98.
+(pdftex.def)             Requested size: 351.31163pt x 260.97437pt.
+
+
+pdfTeX warning: pdflatex.exe (file ./Resources/Megatree_T11_2level_procedure.pdf): PDF inclusion: found PDF version <1.7>, but at most version <1.5> allowed
+<Resources/Megatree_T11_2level_procedure.pdf, id=14, 288.07625pt x 383.4325pt>
+File: Resources/Megatree_T11_2level_procedure.pdf Graphic file (type pdf)
+<use Resources/Megatree_T11_2level_procedure.pdf>
+Package pdftex.def Info: Resources/Megatree_T11_2level_procedure.pdf  used on input line 104.
+(pdftex.def)             Requested size: 288.07553pt x 383.43156pt.
+
+
+pdfTeX warning: pdflatex.exe (file ./TreeSim/Trees_out/T11/T11_V4.gv_pdf.pdf): PDF inclusion: found PDF version <1.7>, but at most version <1.5> allowed
+<TreeSim/Trees_out/T11/T11_V4.gv_pdf.pdf, id=15, 351.3125pt x 260.975pt>
+File: TreeSim/Trees_out/T11/T11_V4.gv_pdf.pdf Graphic file (type pdf)
+<use TreeSim/Trees_out/T11/T11_V4.gv_pdf.pdf>
+Package pdftex.def Info: TreeSim/Trees_out/T11/T11_V4.gv_pdf.pdf  used on input line 111.
+(pdftex.def)             Requested size: 351.31163pt x 260.97437pt.
+
+
+pdfTeX warning: pdflatex.exe (file ./Resources/Megatree_T11_3level_procedure.pdf): PDF inclusion: found PDF version <1.7>, but at most version <1.5> allowed
+<Resources/Megatree_T11_3level_procedure.pdf, id=16, 390.45876pt x 383.4325pt>
+File: Resources/Megatree_T11_3level_procedure.pdf Graphic file (type pdf)
+<use Resources/Megatree_T11_3level_procedure.pdf>
+Package pdftex.def Info: Resources/Megatree_T11_3level_procedure.pdf  used on input line 117.
+(pdftex.def)             Requested size: 390.4578pt x 383.43156pt.
+
+
+pdfTeX warning: pdflatex.exe (file ./TreeSim/Trees_out/T5/T5_V1.gv.pdf): PDF inclusion: found PDF version <1.7>, but at most version <1.5> allowed
+<TreeSim/Trees_out/T5/T5_V1.gv.pdf, id=17, 640.3925pt x 405.515pt>
+File: TreeSim/Trees_out/T5/T5_V1.gv.pdf Graphic file (type pdf)
+<use TreeSim/Trees_out/T5/T5_V1.gv.pdf>
+Package pdftex.def Info: TreeSim/Trees_out/T5/T5_V1.gv.pdf  used on input line 128.
+(pdftex.def)             Requested size: 640.39093pt x 405.51399pt.
+
+
+pdfTeX warning: pdflatex.exe (file ./Resources/Megatree_T5_0level_procedure.pdf): PDF inclusion: found PDF version <1.7>, but at most version <1.5> allowed
+<Resources/Megatree_T5_0level_procedure.pdf, id=18, 513.92pt x 561.09625pt>
+File: Resources/Megatree_T5_0level_procedure.pdf Graphic file (type pdf)
+<use Resources/Megatree_T5_0level_procedure.pdf>
+Package pdftex.def Info: Resources/Megatree_T5_0level_procedure.pdf  used on input line 134.
+(pdftex.def)             Requested size: 513.91873pt x 561.09488pt.
+
+
+pdfTeX warning: pdflatex.exe (file ./TreeSim/Trees_out/T5/T5_V2.gv_pdf.pdf): PDF inclusion: found PDF version <1.7>, but at most version <1.5> allowed
+<TreeSim/Trees_out/T5/T5_V2.gv_pdf.pdf, id=19, 568.1225pt x 477.785pt>
+File: TreeSim/Trees_out/T5/T5_V2.gv_pdf.pdf Graphic file (type pdf)
+<use TreeSim/Trees_out/T5/T5_V2.gv_pdf.pdf>
+Package pdftex.def Info: TreeSim/Trees_out/T5/T5_V2.gv_pdf.pdf  used on input line 141.
+(pdftex.def)             Requested size: 568.1211pt x 477.78383pt.
+
+
+pdfTeX warning: pdflatex.exe (file ./Resources/Megatree_T5_1level_procedure.pdf): PDF inclusion: found PDF version <1.7>, but at most version <1.5> allowed
+<Resources/Megatree_T5_1level_procedure.pdf, id=20, 513.92pt x 649.42625pt>
+File: Resources/Megatree_T5_1level_procedure.pdf Graphic file (type pdf)
+<use Resources/Megatree_T5_1level_procedure.pdf>
+Package pdftex.def Info: Resources/Megatree_T5_1level_procedure.pdf  used on input line 147.
+(pdftex.def)             Requested size: 513.91873pt x 649.42467pt.
+
+
+pdfTeX warning: pdflatex.exe (file ./TreeSim/Trees_out/T5/T5_V3.gv_pdf.pdf): PDF inclusion: found PDF version <1.7>, but at most version <1.5> allowed
+<TreeSim/Trees_out/T5/T5_V3.gv_pdf.pdf, id=21, 568.1225pt x 405.515pt>
+File: TreeSim/Trees_out/T5/T5_V3.gv_pdf.pdf Graphic file (type pdf)
+<use TreeSim/Trees_out/T5/T5_V3.gv_pdf.pdf>
+Package pdftex.def Info: TreeSim/Trees_out/T5/T5_V3.gv_pdf.pdf  used on input line 155.
+(pdftex.def)             Requested size: 568.1211pt x 405.51399pt.
+
+
+pdfTeX warning: pdflatex.exe (file ./Resources/Megatree_T5_2level_procedure.pdf): PDF inclusion: found PDF version <1.7>, but at most version <1.5> allowed
+<Resources/Megatree_T5_2level_procedure.pdf, id=22, 513.92pt x 649.42625pt>
+File: Resources/Megatree_T5_2level_procedure.pdf Graphic file (type pdf)
+<use Resources/Megatree_T5_2level_procedure.pdf>
+Package pdftex.def Info: Resources/Megatree_T5_2level_procedure.pdf  used on input line 161.
+(pdftex.def)             Requested size: 513.91873pt x 649.42467pt.
+
+
+pdfTeX warning: pdflatex.exe (file ./TreeSim/Trees_out/T2/T2_V1.gv.pdf): PDF inclusion: found PDF version <1.7>, but at most version <1.5> allowed
+<TreeSim/Trees_out/T2/T2_V1.gv.pdf, id=23, 315.1775pt x 333.245pt>
+File: TreeSim/Trees_out/T2/T2_V1.gv.pdf Graphic file (type pdf)
+<use TreeSim/Trees_out/T2/T2_V1.gv.pdf>
+Package pdftex.def Info: TreeSim/Trees_out/T2/T2_V1.gv.pdf  used on input line 173.
+(pdftex.def)             Requested size: 315.17673pt x 333.24417pt.
+
+
+pdfTeX warning: pdflatex.exe (file ./Resources/Megatree_T2_0level_procedure.pdf): PDF inclusion: found PDF version <1.7>, but at most version <1.5> allowed
+<Resources/Megatree_T2_0level_procedure.pdf, id=24, 260.975pt x 471.7625pt>
+File: Resources/Megatree_T2_0level_procedure.pdf Graphic file (type pdf)
+<use Resources/Megatree_T2_0level_procedure.pdf>
+Package pdftex.def Info: Resources/Megatree_T2_0level_procedure.pdf  used on input line 179.
+(pdftex.def)             Requested size: 260.97437pt x 471.76134pt.
+
+
+pdfTeX warning: pdflatex.exe (file ./TreeSim/Trees_out/T2/T2_V2.gv_pdf.pdf): PDF inclusion: found PDF version <1.7>, but at most version <1.5> allowed
+<TreeSim/Trees_out/T2/T2_V2.gv_pdf.pdf, id=25, 315.1775pt x 333.245pt>
+File: TreeSim/Trees_out/T2/T2_V2.gv_pdf.pdf Graphic file (type pdf)
+<use TreeSim/Trees_out/T2/T2_V2.gv_pdf.pdf>
+Package pdftex.def Info: TreeSim/Trees_out/T2/T2_V2.gv_pdf.pdf  used on input line 186.
+(pdftex.def)             Requested size: 315.17673pt x 333.24417pt.
+
+
+pdfTeX warning: pdflatex.exe (file ./Resources/Megatree_T2_1level_procedure.pdf): PDF inclusion: found PDF version <1.7>, but at most version <1.5> allowed
+<Resources/Megatree_T2_1level_procedure.pdf, id=26, 342.27875pt x 471.7625pt>
+File: Resources/Megatree_T2_1level_procedure.pdf Graphic file (type pdf)
+<use Resources/Megatree_T2_1level_procedure.pdf>
+Package pdftex.def Info: Resources/Megatree_T2_1level_procedure.pdf  used on input line 192.
+(pdftex.def)             Requested size: 342.2779pt x 471.76134pt.
+
+LaTeX Warning: Float too large for page by 6.98749pt on input line 194.
+
+
+
+pdfTeX warning: pdflatex.exe (file ./TreeSim/Trees_out/T2/T2_V3.gv_pdf.pdf): PDF inclusion: found PDF version <1.7>, but at most version <1.5> allowed
+<TreeSim/Trees_out/T2/T2_V3.gv_pdf.pdf, id=27, 315.1775pt x 333.245pt>
+File: TreeSim/Trees_out/T2/T2_V3.gv_pdf.pdf Graphic file (type pdf)
+<use TreeSim/Trees_out/T2/T2_V3.gv_pdf.pdf>
+Package pdftex.def Info: TreeSim/Trees_out/T2/T2_V3.gv_pdf.pdf  used on input line 200.
+(pdftex.def)             Requested size: 315.17673pt x 333.24417pt.
+
+
+pdfTeX warning: pdflatex.exe (file ./Resources/Megatree_T2_2level_procedure.pdf): PDF inclusion: found PDF version <1.7>, but at most version <1.5> allowed
+<Resources/Megatree_T2_2level_procedure.pdf, id=28, 342.27875pt x 471.7625pt>
+File: Resources/Megatree_T2_2level_procedure.pdf Graphic file (type pdf)
+<use Resources/Megatree_T2_2level_procedure.pdf>
+Package pdftex.def Info: Resources/Megatree_T2_2level_procedure.pdf  used on input line 206.
+(pdftex.def)             Requested size: 342.2779pt x 471.76134pt.
+
+
+pdfTeX warning: pdflatex.exe (file ./TreeSim/Trees_out/T2/T2_V4.gv_pdf.pdf): PDF inclusion: found PDF version <1.7>, but at most version <1.5> allowed
+<TreeSim/Trees_out/T2/T2_V4.gv_pdf.pdf, id=29, 315.1775pt x 333.245pt>
+File: TreeSim/Trees_out/T2/T2_V4.gv_pdf.pdf Graphic file (type pdf)
+<use TreeSim/Trees_out/T2/T2_V4.gv_pdf.pdf>
+Package pdftex.def Info: TreeSim/Trees_out/T2/T2_V4.gv_pdf.pdf  used on input line 213.
+(pdftex.def)             Requested size: 315.17673pt x 333.24417pt.
+
+
+pdfTeX warning: pdflatex.exe (file ./Resources/Megatree_T2_3level_procedure.pdf): PDF inclusion: found PDF version <1.7>, but at most version <1.5> allowed
+<Resources/Megatree_T2_3level_procedure.pdf, id=30, 363.3575pt x 471.7625pt>
+File: Resources/Megatree_T2_3level_procedure.pdf Graphic file (type pdf)
+<use Resources/Megatree_T2_3level_procedure.pdf>
+Package pdftex.def Info: Resources/Megatree_T2_3level_procedure.pdf  used on input line 219.
+(pdftex.def)             Requested size: 363.3566pt x 471.76134pt.
+
+
+pdfTeX warning: pdflatex.exe (file ./TreeSim/Trees_out/T2/T2_V5.gv_pdf.pdf): PDF inclusion: found PDF version <1.7>, but at most version <1.5> allowed
+<TreeSim/Trees_out/T2/T2_V5.gv_pdf.pdf, id=31, 315.1775pt x 333.245pt>
+File: TreeSim/Trees_out/T2/T2_V5.gv_pdf.pdf Graphic file (type pdf)
+<use TreeSim/Trees_out/T2/T2_V5.gv_pdf.pdf>
+Package pdftex.def Info: TreeSim/Trees_out/T2/T2_V5.gv_pdf.pdf  used on input line 227.
+(pdftex.def)             Requested size: 315.17673pt x 333.24417pt.
+
+
+pdfTeX warning: pdflatex.exe (file ./Resources/Megatree_T2_4level_procedure.pdf): PDF inclusion: found PDF version <1.7>, but at most version <1.5> allowed
+<Resources/Megatree_T2_4level_procedure.pdf, id=32, 375.4025pt x 471.7625pt>
+File: Resources/Megatree_T2_4level_procedure.pdf Graphic file (type pdf)
+<use Resources/Megatree_T2_4level_procedure.pdf>
+Package pdftex.def Info: Resources/Megatree_T2_4level_procedure.pdf  used on input line 233.
+(pdftex.def)             Requested size: 375.40158pt x 471.76134pt.
+
+
+pdfTeX warning: pdflatex.exe (file ./TreeSim/Trees_out/T2/T2_V6.gv_pdf.pdf): PDF inclusion: found PDF version <1.7>, but at most version <1.5> allowed
+<TreeSim/Trees_out/T2/T2_V6.gv_pdf.pdf, id=33, 315.1775pt x 333.245pt>
+File: TreeSim/Trees_out/T2/T2_V6.gv_pdf.pdf Graphic file (type pdf)
+<use TreeSim/Trees_out/T2/T2_V6.gv_pdf.pdf>
+Package pdftex.def Info: TreeSim/Trees_out/T2/T2_V6.gv_pdf.pdf  used on input line 240.
+(pdftex.def)             Requested size: 315.17673pt x 333.24417pt.
+
+
+pdfTeX warning: pdflatex.exe (file ./Resources/Megatree_T2_5level_procedure.pdf): PDF inclusion: found PDF version <1.7>, but at most version <1.5> allowed
+<Resources/Megatree_T2_5level_procedure.pdf, id=34, 375.4025pt x 471.7625pt>
+File: Resources/Megatree_T2_5level_procedure.pdf Graphic file (type pdf)
+<use Resources/Megatree_T2_5level_procedure.pdf>
+Package pdftex.def Info: Resources/Megatree_T2_5level_procedure.pdf  used on input line 246.
+(pdftex.def)             Requested size: 375.40158pt x 471.76134pt.
+
+
+pdfTeX warning: pdflatex.exe (file ./TreeSim/Trees_out/T4/T4_V1.gv.pdf): PDF inclusion: found PDF version <1.7>, but at most version <1.5> allowed
+<TreeSim/Trees_out/T4/T4_V1.gv.pdf, id=35, 568.1225pt x 333.245pt>
+File: TreeSim/Trees_out/T4/T4_V1.gv.pdf Graphic file (type pdf)
+<use TreeSim/Trees_out/T4/T4_V1.gv.pdf>
+Package pdftex.def Info: TreeSim/Trees_out/T4/T4_V1.gv.pdf  used on input line 256.
+(pdftex.def)             Requested size: 568.1211pt x 333.24417pt.
+
+
+pdfTeX warning: pdflatex.exe (file ./Resources/Megatree_T4_0level_procedure.pdf): PDF inclusion: found PDF version <1.7>, but at most version <1.5> allowed
+<Resources/Megatree_T4_0level_procedure.pdf, id=36, 459.7175pt x 471.7625pt>
+File: Resources/Megatree_T4_0level_procedure.pdf Graphic file (type pdf)
+<use Resources/Megatree_T4_0level_procedure.pdf>
+Package pdftex.def Info: Resources/Megatree_T4_0level_procedure.pdf  used on input line 262.
+(pdftex.def)             Requested size: 459.71637pt x 471.76134pt.
+
+
+pdfTeX warning: pdflatex.exe (file ./TreeSim/Trees_out/T4/T4_V4.gv_pdf.pdf): PDF inclusion: found PDF version <1.7>, but at most version <1.5> allowed
+<TreeSim/Trees_out/T4/T4_V4.gv_pdf.pdf, id=37, 495.8525pt x 333.245pt>
+File: TreeSim/Trees_out/T4/T4_V4.gv_pdf.pdf Graphic file (type pdf)
+<use TreeSim/Trees_out/T4/T4_V4.gv_pdf.pdf>
+Package pdftex.def Info: TreeSim/Trees_out/T4/T4_V4.gv_pdf.pdf  used on input line 269.
+(pdftex.def)             Requested size: 495.85129pt x 333.24417pt.
+
+
+pdfTeX warning: pdflatex.exe (file ./Resources/Megatree_T4_1level_procedure.pdf): PDF inclusion: found PDF version <1.7>, but at most version <1.5> allowed
+<Resources/Megatree_T4_1level_procedure.pdf, id=38, 441.65pt x 471.7625pt>
+File: Resources/Megatree_T4_1level_procedure.pdf Graphic file (type pdf)
+<use Resources/Megatree_T4_1level_procedure.pdf>
+Package pdftex.def Info: Resources/Megatree_T4_1level_procedure.pdf  used on input line 275.
+(pdftex.def)             Requested size: 441.64891pt x 471.76134pt.
+
+
+pdfTeX warning: pdflatex.exe (file ./TreeSim/Trees_out/T4/T4_V3.gv_pdf.pdf): PDF inclusion: found PDF version <1.7>, but at most version <1.5> allowed
+<TreeSim/Trees_out/T4/T4_V3.gv_pdf.pdf, id=39, 495.8525pt x 333.245pt>
+File: TreeSim/Trees_out/T4/T4_V3.gv_pdf.pdf Graphic file (type pdf)
+<use TreeSim/Trees_out/T4/T4_V3.gv_pdf.pdf>
+Package pdftex.def Info: TreeSim/Trees_out/T4/T4_V3.gv_pdf.pdf  used on input line 284.
+(pdftex.def)             Requested size: 495.85129pt x 333.24417pt.
+
+
+pdfTeX warning: pdflatex.exe (file ./Resources/Megatree_T4_2level_procedure.pdf): PDF inclusion: found PDF version <1.7>, but at most version <1.5> allowed
+<Resources/Megatree_T4_2level_procedure.pdf, id=40, 462.72874pt x 471.7625pt>
+File: Resources/Megatree_T4_2level_procedure.pdf Graphic file (type pdf)
+<use Resources/Megatree_T4_2level_procedure.pdf>
+Package pdftex.def Info: Resources/Megatree_T4_2level_procedure.pdf  used on input line 290.
+(pdftex.def)             Requested size: 462.72762pt x 471.76134pt.
+File: TreeSim/Trees_out/T4/T4_V4.gv_pdf.pdf Graphic file (type pdf)
+<use TreeSim/Trees_out/T4/T4_V4.gv_pdf.pdf>
+Package pdftex.def Info: TreeSim/Trees_out/T4/T4_V4.gv_pdf.pdf  used on input line 297.
+(pdftex.def)             Requested size: 495.85129pt x 333.24417pt.
+
+
+pdfTeX warning: pdflatex.exe (file ./Resources/Megatree_T4_3level_procedure.pdf): PDF inclusion: found PDF version <1.7>, but at most version <1.5> allowed
+<Resources/Megatree_T4_3level_procedure.pdf, id=41, 466.74374pt x 471.7625pt>
+File: Resources/Megatree_T4_3level_procedure.pdf Graphic file (type pdf)
+<use Resources/Megatree_T4_3level_procedure.pdf>
+Package pdftex.def Info: Resources/Megatree_T4_3level_procedure.pdf  used on input line 303.
+(pdftex.def)             Requested size: 466.7426pt x 471.76134pt.
+
+
+pdfTeX warning: pdflatex.exe (file ./TreeSim/Trees_out/T3/T3_V1.gv.pdf): PDF inclusion: found PDF version <1.7>, but at most version <1.5> allowed
+<TreeSim/Trees_out/T3/T3_V1.gv.pdf, id=42, 315.1775pt x 405.515pt>
+File: TreeSim/Trees_out/T3/T3_V1.gv.pdf Graphic file (type pdf)
+<use TreeSim/Trees_out/T3/T3_V1.gv.pdf>
+Package pdftex.def Info: TreeSim/Trees_out/T3/T3_V1.gv.pdf  used on input line 313.
+(pdftex.def)             Requested size: 315.17673pt x 405.51399pt.
+
+
+pdfTeX warning: pdflatex.exe (file ./Resources/Megatree_T3_0level_procedure.pdf): PDF inclusion: found PDF version <1.7>, but at most version <1.5> allowed
+<Resources/Megatree_T3_0level_procedure.pdf, id=43, 260.975pt x 561.09625pt>
+File: Resources/Megatree_T3_0level_procedure.pdf Graphic file (type pdf)
+<use Resources/Megatree_T3_0level_procedure.pdf>
+Package pdftex.def Info: Resources/Megatree_T3_0level_procedure.pdf  used on input line 319.
+(pdftex.def)             Requested size: 260.97437pt x 561.09488pt.
+
+
+pdfTeX warning: pdflatex.exe (file ./TreeSim/Trees_out/T3/T3_V2.gv_pdf.pdf): PDF inclusion: found PDF version <1.7>, but at most version <1.5> allowed
+<TreeSim/Trees_out/T3/T3_V2.gv_pdf.pdf, id=44, 279.0425pt x 477.785pt>
+File: TreeSim/Trees_out/T3/T3_V2.gv_pdf.pdf Graphic file (type pdf)
+<use TreeSim/Trees_out/T3/T3_V2.gv_pdf.pdf>
+Package pdftex.def Info: TreeSim/Trees_out/T3/T3_V2.gv_pdf.pdf  used on input line 326.
+(pdftex.def)             Requested size: 279.04181pt x 477.78383pt.
+
+
+pdfTeX warning: pdflatex.exe (file ./Resources/Megatree_T3_1level_procedure.pdf): PDF inclusion: found PDF version <1.7>, but at most version <1.5> allowed
+<Resources/Megatree_T3_1level_procedure.pdf, id=45, 260.975pt x 649.42625pt>
+File: Resources/Megatree_T3_1level_procedure.pdf Graphic file (type pdf)
+<use Resources/Megatree_T3_1level_procedure.pdf>
+Package pdftex.def Info: Resources/Megatree_T3_1level_procedure.pdf  used on input line 332.
+(pdftex.def)             Requested size: 260.97437pt x 649.42467pt.
+
+LaTeX Warning: Float too large for page by 22.99391pt on input line 334.
+
+
+
+pdfTeX warning: pdflatex.exe (file ./TreeSim/Trees_out/T3/T3_V3.gv_pdf.pdf): PDF inclusion: found PDF version <1.7>, but at most version <1.5> allowed
+<TreeSim/Trees_out/T3/T3_V3.gv_pdf.pdf, id=46, 242.9075pt x 477.785pt>
+File: TreeSim/Trees_out/T3/T3_V3.gv_pdf.pdf Graphic file (type pdf)
+<use TreeSim/Trees_out/T3/T3_V3.gv_pdf.pdf>
+Package pdftex.def Info: TreeSim/Trees_out/T3/T3_V3.gv_pdf.pdf  used on input line 340.
+(pdftex.def)             Requested size: 242.90689pt x 477.78383pt.
+
+
+pdfTeX warning: pdflatex.exe (file ./Resources/Megatree_T3_2level_procedure.pdf): PDF inclusion: found PDF version <1.7>, but at most version <1.5> allowed
+<Resources/Megatree_T3_2level_procedure.pdf, id=47, 288.07625pt x 649.42625pt>
+File: Resources/Megatree_T3_2level_procedure.pdf Graphic file (type pdf)
+<use Resources/Megatree_T3_2level_procedure.pdf>
+Package pdftex.def Info: Resources/Megatree_T3_2level_procedure.pdf  used on input line 346.
+(pdftex.def)             Requested size: 288.07553pt x 649.42467pt.
+
+
+pdfTeX warning: pdflatex.exe (file ./TreeSim/Trees_out/T3/T3_V4.gv_pdf.pdf): PDF inclusion: found PDF version <1.7>, but at most version <1.5> allowed
+<TreeSim/Trees_out/T3/T3_V4.gv_pdf.pdf, id=48, 279.0425pt x 405.515pt>
+File: TreeSim/Trees_out/T3/T3_V4.gv_pdf.pdf Graphic file (type pdf)
+<use TreeSim/Trees_out/T3/T3_V4.gv_pdf.pdf>
+Package pdftex.def Info: TreeSim/Trees_out/T3/T3_V4.gv_pdf.pdf  used on input line 353.
+(pdftex.def)             Requested size: 279.04181pt x 405.51399pt.
+
+
+pdfTeX warning: pdflatex.exe (file ./Resources/Megatree_T3_3level_procedure.pdf): PDF inclusion: found PDF version <1.7>, but at most version <1.5> allowed
+<Resources/Megatree_T3_3level_procedure.pdf, id=49, 297.11pt x 649.42625pt>
+File: Resources/Megatree_T3_3level_procedure.pdf Graphic file (type pdf)
+<use Resources/Megatree_T3_3level_procedure.pdf>
+Package pdftex.def Info: Resources/Megatree_T3_3level_procedure.pdf  used on input line 359.
+(pdftex.def)             Requested size: 297.10927pt x 649.42467pt.
+
+LaTeX Warning: Float too large for page by 9.0893pt on input line 361.
+
+
+
+pdfTeX warning: pdflatex.exe (file ./TreeSim/Trees_out/T3/T3_V5.gv_pdf.pdf): PDF inclusion: found PDF version <1.7>, but at most version <1.5> allowed
+<TreeSim/Trees_out/T3/T3_V5.gv_pdf.pdf, id=50, 242.9075pt x 405.515pt>
+File: TreeSim/Trees_out/T3/T3_V5.gv_pdf.pdf Graphic file (type pdf)
+<use TreeSim/Trees_out/T3/T3_V5.gv_pdf.pdf>
+Package pdftex.def Info: TreeSim/Trees_out/T3/T3_V5.gv_pdf.pdf  used on input line 367.
+(pdftex.def)             Requested size: 242.90689pt x 405.51399pt.
+
+
+pdfTeX warning: pdflatex.exe (file ./Resources/Megatree_T3_4level_procedure.pdf): PDF inclusion: found PDF version <1.7>, but at most version <1.5> allowed
+<Resources/Megatree_T3_4level_procedure.pdf, id=51, 288.07625pt x 649.42625pt>
+File: Resources/Megatree_T3_4level_procedure.pdf Graphic file (type pdf)
+<use Resources/Megatree_T3_4level_procedure.pdf>
+Package pdftex.def Info: Resources/Megatree_T3_4level_procedure.pdf  used on input line 373.
+(pdftex.def)             Requested size: 288.07553pt x 649.42467pt.
+
+
+pdfTeX warning: pdflatex.exe (file ./TreeSim/Trees_out/T3/T3_V6.gv_pdf.pdf): PDF inclusion: found PDF version <1.7>, but at most version <1.5> allowed
+<TreeSim/Trees_out/T3/T3_V6.gv_pdf.pdf, id=52, 315.1775pt x 405.515pt>
+File: TreeSim/Trees_out/T3/T3_V6.gv_pdf.pdf Graphic file (type pdf)
+<use TreeSim/Trees_out/T3/T3_V6.gv_pdf.pdf>
+Package pdftex.def Info: TreeSim/Trees_out/T3/T3_V6.gv_pdf.pdf  used on input line 380.
+(pdftex.def)             Requested size: 315.17673pt x 405.51399pt.
+
+
+pdfTeX warning: pdflatex.exe (file ./Resources/Megatree_T3_5level_procedure.pdf): PDF inclusion: found PDF version <1.7>, but at most version <1.5> allowed
+<Resources/Megatree_T3_5level_procedure.pdf, id=53, 342.27875pt x 649.42625pt>
+File: Resources/Megatree_T3_5level_procedure.pdf Graphic file (type pdf)
+<use Resources/Megatree_T3_5level_procedure.pdf>
+Package pdftex.def Info: Resources/Megatree_T3_5level_procedure.pdf  used on input line 386.
+(pdftex.def)             Requested size: 342.2779pt x 649.42467pt.
+
+
+[1{c:/texlive/2024/texmf-var/fonts/map/pdftex/updmap/pdftex.map} <./TreeSim/Trees_out/T10/T10_V1.gv.pdf> <./Resources/Megatree_T10_0level_procedure.pdf
+
+pdfTeX warning: pdflatex.exe (file ./Resources/Megatree_T10_0level_procedure.pdf): PDF inclusion: multiple pdfs with page group included in a single page
+> <./TreeSim/Trees_out/T10/T10_V2.gv_pdf.pdf
+
+pdfTeX warning: pdflatex.exe (file ./TreeSim/Trees_out/T10/T10_V2.gv_pdf.pdf): PDF inclusion: multiple pdfs with page group included in a single page
+> <./Resources/Megatree_T10_1level_procedure.pdf
+
+pdfTeX warning: pdflatex.exe (file ./Resources/Megatree_T10_1level_procedure.pdf): PDF inclusion: multiple pdfs with page group included in a single page
+>]
+
+[2 <./TreeSim/Trees_out/T10/T10_V3.gv_pdf.pdf> <./Resources/Megatree_T10_2level_procedure.pdf
+
+pdfTeX warning: pdflatex.exe (file ./Resources/Megatree_T10_2level_procedure.pdf): PDF inclusion: multiple pdfs with page group included in a single page
+> <./TreeSim/Trees_out/T10/T10_V4.gv_pdf.pdf
+
+pdfTeX warning: pdflatex.exe (file ./TreeSim/Trees_out/T10/T10_V4.gv_pdf.pdf): PDF inclusion: multiple pdfs with page group included in a single page
+> <./Resources/Megatree_T10_3level_procedure.pdf
+
+pdfTeX warning: pdflatex.exe (file ./Resources/Megatree_T10_3level_procedure.pdf): PDF inclusion: multiple pdfs with page group included in a single page
+>]
+
+[3 <./TreeSim/Trees_out/T11/T11_V1.gv.pdf> <./Resources/Megatree_T11_0level_procedure.pdf
+
+pdfTeX warning: pdflatex.exe (file ./Resources/Megatree_T11_0level_procedure.pdf): PDF inclusion: multiple pdfs with page group included in a single page
+> <./TreeSim/Trees_out/T11/T11_V2.gv_pdf.pdf
+
+pdfTeX warning: pdflatex.exe (file ./TreeSim/Trees_out/T11/T11_V2.gv_pdf.pdf): PDF inclusion: multiple pdfs with page group included in a single page
+> <./Resources/Megatree_T11_1level_procedure.pdf
+
+pdfTeX warning: pdflatex.exe (file ./Resources/Megatree_T11_1level_procedure.pdf): PDF inclusion: multiple pdfs with page group included in a single page
+>]
+
+[4 <./TreeSim/Trees_out/T11/T11_V3.gv_pdf.pdf> <./Resources/Megatree_T11_2level_procedure.pdf
+
+pdfTeX warning: pdflatex.exe (file ./Resources/Megatree_T11_2level_procedure.pdf): PDF inclusion: multiple pdfs with page group included in a single page
+> <./TreeSim/Trees_out/T11/T11_V4.gv_pdf.pdf
+
+pdfTeX warning: pdflatex.exe (file ./TreeSim/Trees_out/T11/T11_V4.gv_pdf.pdf): PDF inclusion: multiple pdfs with page group included in a single page
+> <./Resources/Megatree_T11_3level_procedure.pdf
+
+pdfTeX warning: pdflatex.exe (file ./Resources/Megatree_T11_3level_procedure.pdf): PDF inclusion: multiple pdfs with page group included in a single page
+>]
+
+[5 <./TreeSim/Trees_out/T5/T5_V1.gv.pdf> <./Resources/Megatree_T5_0level_procedure.pdf
+
+pdfTeX warning: pdflatex.exe (file ./Resources/Megatree_T5_0level_procedure.pdf): PDF inclusion: multiple pdfs with page group included in a single page
+> <./TreeSim/Trees_out/T5/T5_V2.gv_pdf.pdf
+
+pdfTeX warning: pdflatex.exe (file ./TreeSim/Trees_out/T5/T5_V2.gv_pdf.pdf): PDF inclusion: multiple pdfs with page group included in a single page
+> <./Resources/Megatree_T5_1level_procedure.pdf
+
+pdfTeX warning: pdflatex.exe (file ./Resources/Megatree_T5_1level_procedure.pdf): PDF inclusion: multiple pdfs with page group included in a single page
+>]
+
+[6 <./TreeSim/Trees_out/T5/T5_V3.gv_pdf.pdf> <./Resources/Megatree_T5_2level_procedure.pdf
+
+pdfTeX warning: pdflatex.exe (file ./Resources/Megatree_T5_2level_procedure.pdf): PDF inclusion: multiple pdfs with page group included in a single page
+>]
+
+[7 <./TreeSim/Trees_out/T2/T2_V1.gv.pdf> <./Resources/Megatree_T2_0level_procedure.pdf
+
+pdfTeX warning: pdflatex.exe (file ./Resources/Megatree_T2_0level_procedure.pdf): PDF inclusion: multiple pdfs with page group included in a single page
+> <./TreeSim/Trees_out/T2/T2_V2.gv_pdf.pdf
+
+pdfTeX warning: pdflatex.exe (file ./TreeSim/Trees_out/T2/T2_V2.gv_pdf.pdf): PDF inclusion: multiple pdfs with page group included in a single page
+> <./Resources/Megatree_T2_1level_procedure.pdf
+
+pdfTeX warning: pdflatex.exe (file ./Resources/Megatree_T2_1level_procedure.pdf): PDF inclusion: multiple pdfs with page group included in a single page
+>]
+
+[8 <./TreeSim/Trees_out/T2/T2_V3.gv_pdf.pdf> <./Resources/Megatree_T2_2level_procedure.pdf
+
+pdfTeX warning: pdflatex.exe (file ./Resources/Megatree_T2_2level_procedure.pdf): PDF inclusion: multiple pdfs with page group included in a single page
+> <./TreeSim/Trees_out/T2/T2_V4.gv_pdf.pdf
+
+pdfTeX warning: pdflatex.exe (file ./TreeSim/Trees_out/T2/T2_V4.gv_pdf.pdf): PDF inclusion: multiple pdfs with page group included in a single page
+> <./Resources/Megatree_T2_3level_procedure.pdf
+
+pdfTeX warning: pdflatex.exe (file ./Resources/Megatree_T2_3level_procedure.pdf): PDF inclusion: multiple pdfs with page group included in a single page
+>]
+
+[9 <./TreeSim/Trees_out/T2/T2_V5.gv_pdf.pdf> <./Resources/Megatree_T2_4level_procedure.pdf
+
+pdfTeX warning: pdflatex.exe (file ./Resources/Megatree_T2_4level_procedure.pdf): PDF inclusion: multiple pdfs with page group included in a single page
+> <./TreeSim/Trees_out/T2/T2_V6.gv_pdf.pdf
+
+pdfTeX warning: pdflatex.exe (file ./TreeSim/Trees_out/T2/T2_V6.gv_pdf.pdf): PDF inclusion: multiple pdfs with page group included in a single page
+> <./Resources/Megatree_T2_5level_procedure.pdf
+
+pdfTeX warning: pdflatex.exe (file ./Resources/Megatree_T2_5level_procedure.pdf): PDF inclusion: multiple pdfs with page group included in a single page
+>]
+
+[10 <./TreeSim/Trees_out/T4/T4_V1.gv.pdf> <./Resources/Megatree_T4_0level_procedure.pdf
+
+pdfTeX warning: pdflatex.exe (file ./Resources/Megatree_T4_0level_procedure.pdf): PDF inclusion: multiple pdfs with page group included in a single page
+> <./TreeSim/Trees_out/T4/T4_V4.gv_pdf.pdf
+
+pdfTeX warning: pdflatex.exe (file ./TreeSim/Trees_out/T4/T4_V4.gv_pdf.pdf): PDF inclusion: multiple pdfs with page group included in a single page
+> <./Resources/Megatree_T4_1level_procedure.pdf
+
+pdfTeX warning: pdflatex.exe (file ./Resources/Megatree_T4_1level_procedure.pdf): PDF inclusion: multiple pdfs with page group included in a single page
+>]
+
+[11 <./TreeSim/Trees_out/T4/T4_V3.gv_pdf.pdf> <./Resources/Megatree_T4_2level_procedure.pdf
+
+pdfTeX warning: pdflatex.exe (file ./Resources/Megatree_T4_2level_procedure.pdf): PDF inclusion: multiple pdfs with page group included in a single page
+> <./Resources/Megatree_T4_3level_procedure.pdf
+
+pdfTeX warning: pdflatex.exe (file ./Resources/Megatree_T4_3level_procedure.pdf): PDF inclusion: multiple pdfs with page group included in a single page
+>]
+
+[12 <./TreeSim/Trees_out/T3/T3_V1.gv.pdf> <./Resources/Megatree_T3_0level_procedure.pdf
+
+pdfTeX warning: pdflatex.exe (file ./Resources/Megatree_T3_0level_procedure.pdf): PDF inclusion: multiple pdfs with page group included in a single page
+> <./TreeSim/Trees_out/T3/T3_V2.gv_pdf.pdf
+
+pdfTeX warning: pdflatex.exe (file ./TreeSim/Trees_out/T3/T3_V2.gv_pdf.pdf): PDF inclusion: multiple pdfs with page group included in a single page
+> <./Resources/Megatree_T3_1level_procedure.pdf
+
+pdfTeX warning: pdflatex.exe (file ./Resources/Megatree_T3_1level_procedure.pdf): PDF inclusion: multiple pdfs with page group included in a single page
+>]
+
+[13 <./TreeSim/Trees_out/T3/T3_V3.gv_pdf.pdf> <./Resources/Megatree_T3_2level_procedure.pdf
+
+pdfTeX warning: pdflatex.exe (file ./Resources/Megatree_T3_2level_procedure.pdf): PDF inclusion: multiple pdfs with page group included in a single page
+> <./TreeSim/Trees_out/T3/T3_V4.gv_pdf.pdf
+
+pdfTeX warning: pdflatex.exe (file ./TreeSim/Trees_out/T3/T3_V4.gv_pdf.pdf): PDF inclusion: multiple pdfs with page group included in a single page
+> <./Resources/Megatree_T3_3level_procedure.pdf
+
+pdfTeX warning: pdflatex.exe (file ./Resources/Megatree_T3_3level_procedure.pdf): PDF inclusion: multiple pdfs with page group included in a single page
+>]
+
+[14 <./TreeSim/Trees_out/T3/T3_V5.gv_pdf.pdf> <./Resources/Megatree_T3_4level_procedure.pdf
+
+pdfTeX warning: pdflatex.exe (file ./Resources/Megatree_T3_4level_procedure.pdf): PDF inclusion: multiple pdfs with page group included in a single page
+> <./TreeSim/Trees_out/T3/T3_V6.gv_pdf.pdf
+
+pdfTeX warning: pdflatex.exe (file ./TreeSim/Trees_out/T3/T3_V6.gv_pdf.pdf): PDF inclusion: multiple pdfs with page group included in a single page
+> <./Resources/Megatree_T3_5level_procedure.pdf
+
+pdfTeX warning: pdflatex.exe (file ./Resources/Megatree_T3_5level_procedure.pdf): PDF inclusion: multiple pdfs with page group included in a single page
+>] (./esempi_level_procedure.aux)
+ ***********
+LaTeX2e <2024-06-01> patch level 2
+L3 programming layer <2024-09-10>
+ ***********
+ ) 
+Here is how much of TeX's memory you used:
+ 2195 strings out of 473579
+ 47859 string characters out of 5732263
+ 436528 words of memory out of 5000000
+ 25128 multiletter control sequences out of 15000+600000
+ 558069 words of font info for 36 fonts, out of 8000000 for 9000
+ 1141 hyphenation exceptions out of 8191
+ 57i,9n,65p,287b,307s stack positions out of 10000i,1000n,20000p,200000b,200000s
+<c:/texlive/2024/texmf-dist/fonts/type1/public/amsfonts/cm/cmr10.pfb>
+Output written on esempi_level_procedure.pdf (14 pages, 832957 bytes).
+PDF statistics:
+ 496 PDF objects out of 1000 (max. 8388607)
+ 315 compressed objects within 4 object streams
+ 0 named destinations out of 1000 (max. 500000)
+ 266 words of extra memory for PDF output out of 10000 (max. 10000000)
+
