@@ -87,7 +87,7 @@ def main():
             added_nodes += 1
 
     g.render()
-    # graphviz.render("dot", "png", out_prefix + ".gv")
+    graphviz.render("dot", "png", out_prefix + ".gv")
 
 
 if __name__ == "__main__":
