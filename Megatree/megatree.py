@@ -166,6 +166,7 @@ def reconstruct_tree(TG, P, y):
         reconstruct_tree(TG, P, z)
     return
 
+
 def insert_tree_rilassato(T, r, G):
     candidates = []
     trovato = False
