@@ -96,7 +96,7 @@ def insert_tree_intersect(T, r, G):
 
     for node in G.nodes():
         if G.nodes[node]['label'] == T.nodes[r]['label']:
-            if list_label(T, sorted(list(T.successors(r)))) == list_label(G, sorted(list(G.successors(node)))) or list_label(T, sorted(list(T.successors(r)))) & list_label(G, sorted(list(G.successors(node)))):
+            if list_label(T, list(T.successors(r))) == list_label(G, list(G.successors(node))) or list_label(T, list(T.successors(r))) & list_label(G, list(G.successors(node))):
                 node_descendants = nx.descendants(G, node)
                 if r_predecessor not in node_descendants:
                     dif = list_label(G, sorted(list(G.successors(node)))) ^ list_label(T, sorted(list(T.successors(r))))
@@ -129,16 +129,21 @@ def level_procedure(T, r, G):
     else:
         r_predecessor = T.nodes[next(T.predecessors(r))]['mapped_on']
 
+    #trovo tutti i nodi in G con la stessa label e la stessa profondità del nodo che voglio inserire
     same_depth = [node for node in G.nodes() if G.nodes[node]['depth'] == T.nodes[r]['depth'] + 1 and G.nodes[node]['label'] == T.nodes[r]['label']]
 
     if len(same_depth) == 0:
+        #se non c'è nessun nodo valido in G lo aggiungo
         newNode = r + T.graph["num"]
         G.add_node(newNode , mapping = [newNode], label = T.nodes[r]['label'])
         G.nodes[newNode]['depth'] = T.nodes[r]['depth'] + 1
         T.nodes[r]['mapped_on'] = newNode
+    
     else:
+        #se trovo un nodo valido gli aggiugno ai suoi nodi mappati quello che devo inserire
         G.nodes[same_depth[0]]['mapping'].append(r + T.graph["num"] )
         T.nodes[r]['mapped_on'] = same_depth[0]
+
 
     G.add_edge(r_predecessor, T.nodes[r]['mapped_on'])
 
@@ -151,7 +156,9 @@ def load_trees(directory):
     for (i, file) in enumerate(os.listdir(directory)):
         T = nx.DiGraph(nx.drawing.nx_agraph.read_dot(os.path.join(directory, file)))
         r = [r for r, d in T.in_degree() if d == 0]
+
         T.graph["num"] = "-" + str(i)
+        
         depth_nodes(T, r[0])
         trees.append((T, r[0]))
     return trees
@@ -163,6 +170,8 @@ def main():
                         help='Path to the directory of the trees')
     parser.add_argument('-p', '--operation', action='store', type=str, required=True,
                         help='insert_tree_interset/level_procedure')
+    parser.add_argument('-s', '--show', action='store_true',
+                        help='enable to show megatree after every tree')
     parser.add_argument('-o', '--out', action='store', type=str, required=True,
                         help='Path to output file')
     
@@ -183,12 +192,13 @@ def main():
         weight_edges(G, trees)
         add_leaves(G, trees)
 
-        O = nx.nx_agraph.to_agraph(G)
-        O = graphviz.Source(O.to_string())
-        img_data = O.pipe(format='png')
-        img = mpimg.imread(BytesIO(img_data), format='png')
-        plt.imshow(img)
-        plt.show()
+        if argparse.show:
+            O = nx.nx_agraph.to_agraph(G)
+            O = graphviz.Source(O.to_string())
+            img_data = O.pipe(format='png')
+            img = mpimg.imread(BytesIO(img_data), format='png')
+            plt.imshow(img)
+            plt.show()
 
     totArchi = sum(len(T.edges()) for T, _ in trees)
     print("numero archi prima = " + str(totArchi))    
